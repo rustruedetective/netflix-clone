@@ -1,0 +1,62 @@
+:root {
+    /* aspect ratio is 16:9 (720p) */
+    --normal-trailer-height: 50vh;
+    --normal-trailer-width: 112vh;
+
+    --highlight-rows-height: 28vh;
+}
+
+
+.highlightpage {
+    height: 100%;
+    width: 100%;
+    background-color: aqua;
+}
+
+
+.description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: var(--normal-trailer-height);
+    background: red;
+    transition: cubic-bezier(.08,1.05,.92,.95) 1s;
+}
+.description-highlight {
+    width: 0%;
+}
+.description-normal {
+    width: calc(100vw - var(--normal-trailer-width));
+}
+
+
+.trailer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: blue;
+    transition: cubic-bezier(.08,1.05,.92,.95) 1s;
+}
+.trailer-highlight {
+    height: 100%;
+    width: 100%;
+}
+.trailer-normal {
+    height: var(--normal-trailer-height);
+    width: var(--normal-trailer-width);
+}
+
+.rows {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    transition: cubic-bezier(.08,1.05,.92,.95) 1s;
+}
+.rows-highlight {
+    height: var(--highlight-rows-height);
+}
+.rows-normal {
+    height: calc(100vh - var(--normal-trailer-height));
+}

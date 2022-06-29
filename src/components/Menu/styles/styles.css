@@ -1,0 +1,44 @@
+:root {
+    --menu-icon-height: 1.5rem;
+    --menu-icon-width: 1.5rem;
+
+    --white-color: #fffff0;
+}
+
+.menu {
+    height: 100vh;
+    width: calc(var(--menu-icon-width) * 3);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+
+    transition: width 0.5s ease-out;
+
+    background: linear-gradient(90deg, rgba(20,20,20,1) 0%, rgba(122,117,117,0) 100%);
+}
+
+.menu-active {
+    width: calc(var(--menu-icon-width)*7);
+}
+
+.profile {
+    height: 20vh;
+    width: calc(var(--menu-icon-width) * 7);
+
+    position: relative;
+    left: 0;
+    display: block;
+
+    padding-left: var(--menu-icon-width);
+}
+
+.navigation {
+    height: 80vh;
+    width: calc(var(--menu-icon-width) * 7);
+
+    padding-left: var(--menu-icon-width);
+
+}
+

@@ -1,0 +1,28 @@
+Libs Used:-
+Swipper js's react components
+Rebass
+
+1. Styles
+a. all styles stored in src/styles in js objects
+b. these objects added inline in components
+c. styles of external library imported as .css file
+
+2. Components
+a. all components have their own folders with all dependant components in there
+e.g /src/components/MyComponent/MyComponent.js
+b. each component has:-
+    MyComponent.js main file
+    DepComponent.js dependant files
+    /styles/Styles.js file
+    /helpers/handlers.js or misc.js
+
+3. import methodology:-
+    pure react stuff
+    external lib js stuff
+    external lib css files
+    *blank line*
+    my components
+    my styles
+    my contants
+
+4. 

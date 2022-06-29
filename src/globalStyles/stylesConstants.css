@@ -1,0 +1,25 @@
+:root {
+    --main-background-color: #141414;
+    --row-headings: #e5e5e5;
+
+    --red-color: #e50914;
+    --white-in-red-color: #fffff0;
+
+    --sign-page-heading: #ffffff;
+    --sign-page-inputs: #333333;
+    --sign-page-inputs-placeholder: #8c8c75;
+
+    --profile-1-top: #0970e4;
+    --profile-1-bottom: #4f97ec;
+    --profile-2-top: #e5b209;
+    --profile-2-bottom: #ecc74e;
+    --profile-3-top: #e40914;
+    --profile-3-bottom: #ec5058;
+    --profile-4-top: #073c4d;
+    --profile-4-bottom: #4e737f;
+    --profile-5-top: #2abb75;
+    --profile-5-bottom: #65cf9b;
+
+    --profile-headings-white: #fefefe;
+    --profile-headings-grey: #6c6c6c;
+}

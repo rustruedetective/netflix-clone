@@ -1,0 +1,36 @@
+:root {
+    --menu-icon-height: 1.5rem;
+    --menu-icon-width: 1.5rem;
+
+    --white-color: #fffff0;
+}
+
+a {
+    height: var(--menu-icon-height);
+
+    text-decoration: none;
+    color: var(--white-color);
+}
+
+.icon {
+    height: var(--menu-icon-height);
+    width: var(--menu-icon-width);
+
+    vertical-align: middle;
+    padding-right: var(--menu-icon-width);
+
+    color: var(--white-color);
+}
+
+.title {
+    transition: all 0.1s linear;
+}
+
+.title-active {
+    font-weight: bold;
+}
+
+li {
+    margin-top: 3vh;
+    list-style: none;
+}
