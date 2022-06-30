@@ -3,18 +3,32 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 import { SlideNext, SlidePrev } from "./SlideButtons";
-import { styles, rowImgStyle } from "./styles/styles";
-import { constants, derivedConstants } from "./helpers/constants";
+import { styles } from "./styles/styles";
+import Poster from "./Poster";
 
-function Row() {
-  const { row_img_width, row_img_height, row_img_per_page } = constants;
-  const { img_width, img_height } = derivedConstants;
+function Row({ row }) {
+  row = [
+    { name: "a", posterSrc: "", size: { x: 10, y: 100 } },
+    { name: "b", posterSrc: "", size: { x: 10, y: 100 } },
+    { name: "c", posterSrc: "", size: { x: 10, y: 100 } },
+    { name: "d", posterSrc: "", size: { x: 10, y: 100 } },
+    { name: "e", posterSrc: "", size: { x: 10, y: 100 } },
+    { name: "f", posterSrc: "", size: { x: 10, y: 100 } },
+    { name: "g", posterSrc: "", size: { x: 10, y: 100 } },
+    { name: "h", posterSrc: "", size: { x: 10, y: 100 } },
+    { name: "i", posterSrc: "", size: { x: 10, y: 100 } },
+    { name: "j", posterSrc: "", size: { x: 10, y: 100 } },
+    { name: "k", posterSrc: "", size: { x: 10, y: 100 } },
+    { name: "l", posterSrc: "", size: { x: 10, y: 100 } },
+    { name: "m", posterSrc: "", size: { x: 10, y: 100 } },
+    { name: "n", posterSrc: "", size: { x: 10, y: 100 } },
+    { name: "o", posterSrc: "", size: { x: 10, y: 100 } },
+  ];
 
   return (
     <div className="row" style={styles}>
-      
       <Swiper
-        slidesPerView={row_img_per_page}
+        slidesPerView={6.4}
         navigation={{
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
@@ -22,15 +36,10 @@ function Row() {
         freeMode
         preloadImages
       >
-        {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((el, ind) => (
+        {/* Array of posters */}
+        {row.map((el, ind) => (
           <SwiperSlide key={ind}>
-            <img
-              className="row-img"
-              width={row_img_width}
-              height={row_img_height}
-              src={`https://random.imagecdn.app/${img_width}/${img_height}`}
-              style={rowImgStyle}
-            />
+            <Poster {...el} />
           </SwiperSlide>
         ))}
         <SlideNext />

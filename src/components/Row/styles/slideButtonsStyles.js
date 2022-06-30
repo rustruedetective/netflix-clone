@@ -6,7 +6,7 @@ const styles = {
   zIndex: 2,
 
   /* design */
-  background: "transparent",
+  background: "rgba(20,20,20,0.1)",
   border: "none",
 };
 
@@ -22,4 +22,4 @@ const leftStyle = {
   left: "0",
 };
 
-export { styles, rightStyle, leftStyle }
+export { styles, rightStyle, leftStyle };

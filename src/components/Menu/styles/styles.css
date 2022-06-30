@@ -16,7 +16,9 @@
 
     transition: width 0.5s ease-out;
 
-    background: linear-gradient(90deg, rgba(20,20,20,1) 0%, rgba(122,117,117,0) 100%);
+    background: linear-gradient(90deg, rgba(20,20,20,1) 0%, rgba(20,20,20,0.1) 100%);
+
+    z-index: 10;
 }
 
 .menu-active {

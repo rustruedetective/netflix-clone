@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import ProfileBox from "../ProfileBox/ProfileBox";
 import "./styles/styles.css";
@@ -16,7 +17,9 @@ function ProfileSelect() {
         <div className="buttons-area">
           <div className="buttons-area2">
             <button>
-              <span></span>Surprise Me
+              <Link to="/surpriseme">
+                <span></span>Surprise Me
+              </Link>
             </button>
             <div>
               <span>icon</span>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import "./styles/MenuItemStyles.css";
 
@@ -6,14 +7,14 @@ function MenuItem({ children, title, href }) {
   const [active, setActive] = useState(false);
 
   return (
-    <a
-      href={href}
+    <Link
+      to={href}
       onMouseEnter={(_) => setActive(true)}
       onMouseLeave={(_) => setActive(false)}
     >
       {children}
       <span className={`title ${active ? "title-active" : ""}`}>{title}</span>
-    </a>
+    </Link>
   );
 }
 

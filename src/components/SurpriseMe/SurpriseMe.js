@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./styles/styles.css";
 
@@ -7,7 +8,9 @@ function SurpriseMe() {
     <div className="surpriseme">
       <div className="surpriseme-trailer">
         <div className="trailer-content">
-          <div className="exit">^ exit</div>
+          <div className="exit">
+            <Link to="/home">^ exit</Link>
+          </div>
         </div>
       </div>
       <div className="surpriseme-interactible-left">

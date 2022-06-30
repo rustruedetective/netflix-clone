@@ -42,4 +42,5 @@
     top: 10vh;
     left: 8vw;
     color: white;
+    z-index: 1;
 }

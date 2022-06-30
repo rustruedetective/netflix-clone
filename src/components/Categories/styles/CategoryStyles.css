@@ -1,0 +1,27 @@
+:root {
+    --menu-icon-width: 1.5rem;
+    --white-color: #fffff0;
+}
+
+.category {
+    color: var(--white-color);
+    font-weight: lighter;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 0.9rem;
+}
+
+.selected-category {
+    color: red;
+    margin-left: 0.6rem;
+    display: inline-block;
+}
+
+.selected-marker {
+    height: 1.5rem;
+    width: 0.3rem;
+    display: inline-block;
+    background-color: red;
+    position: relative;
+    top: 0.3rem;
+}

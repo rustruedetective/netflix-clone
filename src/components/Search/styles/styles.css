@@ -1,0 +1,74 @@
+:root {
+    --main-background-color: #141414;
+    --heading-white: #fefefe;
+}
+
+.container {  
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "search-bar posters";
+    background-color: var(--main-background-color);
+}
+  
+.search-bar {
+    grid-area: search-bar;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10vh;
+}
+.search-bar-inner {
+    color: var(--heading-white);
+    text-align: left;
+}
+.search-bar-inner p {
+    margin-top: 2vh;
+    font-size: 1.2rem;
+}
+
+.posters {
+    height: 80vh;
+    grid-area: posters;
+    padding-top: 10vh;
+
+    transition: all 0.5s ease-out;
+}
+.posters-active {
+    padding-top: 1vh;
+}
+
+.top-searched {
+    height: 5vh;
+    margin-bottom: 5vh;
+    color: var(--heading-white);
+}
+
+.posters-area {
+    height: 80vh;
+    width: 90%;
+    background-color: yellow;
+    display: flex;
+    flex-wrap: wrap;
+
+    overflow-y: scroll;
+
+    transition: all 0.5s ease-out;
+}
+.posters-area-active {
+    height: 89vh;
+}
+
+/* for hiding scroll */
+.posters-area::-webkit-scrollbar {
+    display: none;
+}
+.posters-area {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
