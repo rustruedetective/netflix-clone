@@ -8,11 +8,14 @@ import SurpriseMe from "./components/SurpriseMe/SurpriseMe";
 import Categories from "./components/Categories/Categories";
 import Source from "./components/Source/Source";
 import Row from "./components/Row/Row";
-import urls from "./requests/urls";
+import requests from "./requests/requests";
 
 import "./App.css";
 
 function App() {
+  // requests.discoverMoviesRandom();
+  requests.discoverTVRandom();
+
   return (
     <div className="App">
       {/* <Routes>
@@ -68,8 +71,8 @@ function App() {
           }
         />
       </Routes> */}
-      <Menu />
-      <Row />
+      {/* <Menu />
+      <Row /> */}
     </div>
   );
 }

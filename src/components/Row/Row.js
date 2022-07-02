@@ -1,34 +1,83 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 import { SlideNext, SlidePrev } from "./SlideButtons";
 import { styles } from "./styles/styles";
-import Poster from "./Poster";
+import Poster from "../Poster/Poster";
 
-function Row({ row }) {
+// we need to provide height and width of whole poster here
+// and not just the image inside it, because slides checks width from here
+const typesOfPosters = {
+  normal: {
+    name: "normal",
+    width: "154.07px",
+    height: "231.48px",
+    aspectRatio: "auto 416 / 625",
+  },
+  numbered: {
+    name: "numbered",
+    width: "308.14px",
+    height: "231.48px",
+    aspectRatio: "auto 416 / 625",
+  },
+  trailer: {
+    name: "trailer",
+    width: "154.07px",
+    height: "231.48px",
+    aspectRatio: "auto 416 / 625",
+  },
+  search: {
+    name: "search",
+    width: "154.07px",
+    height: "231.48px",
+    aspectRatio: "auto 416 / 625",
+  },
+};
+
+function Row({ row, type }) {
+  const [slidesPerView, setSlidesPerView] = useState(0);
   row = [
-    { name: "a", posterSrc: "", size: { x: 10, y: 100 } },
-    { name: "b", posterSrc: "", size: { x: 10, y: 100 } },
-    { name: "c", posterSrc: "", size: { x: 10, y: 100 } },
-    { name: "d", posterSrc: "", size: { x: 10, y: 100 } },
-    { name: "e", posterSrc: "", size: { x: 10, y: 100 } },
-    { name: "f", posterSrc: "", size: { x: 10, y: 100 } },
-    { name: "g", posterSrc: "", size: { x: 10, y: 100 } },
-    { name: "h", posterSrc: "", size: { x: 10, y: 100 } },
-    { name: "i", posterSrc: "", size: { x: 10, y: 100 } },
-    { name: "j", posterSrc: "", size: { x: 10, y: 100 } },
-    { name: "k", posterSrc: "", size: { x: 10, y: 100 } },
-    { name: "l", posterSrc: "", size: { x: 10, y: 100 } },
-    { name: "m", posterSrc: "", size: { x: 10, y: 100 } },
-    { name: "n", posterSrc: "", size: { x: 10, y: 100 } },
-    { name: "o", posterSrc: "", size: { x: 10, y: 100 } },
+    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
+    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
+    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
+    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
+    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
+    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
+    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
+    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
+    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
+    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
+    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
+    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
+    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
+    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
+    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
   ];
+  type = "numbered";
+
+  // setting the slides to display per slide
+  // we can set a no by width of slider/width of all slides+space between them
+  // we attach this code to the window's resize event, so we get responsive shit
+  const ref = useRef(null);
+  useEffect((_) => {
+    const handler = (_) => {
+      const widthOfSlider = ref.current.offsetWidth;
+      const widthOfPoster =
+        Number(typesOfPosters[type].width.split("px")[0]) + 10;
+      setSlidesPerView(widthOfSlider / widthOfPoster);
+    };
+
+    handler(); // init run
+    window.addEventListener("resize", handler);
+    return (_) => window.removeEventListener("resize", handler);
+  }, []);
 
   return (
     <div className="row" style={styles}>
       <Swiper
-        slidesPerView={6.4}
+        ref={ref}
+        slidesPerView={slidesPerView.toFixed(2)}
         navigation={{
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
@@ -39,7 +88,12 @@ function Row({ row }) {
         {/* Array of posters */}
         {row.map((el, ind) => (
           <SwiperSlide key={ind}>
-            <Poster {...el} />
+            <Poster
+              {...el}
+              type={typesOfPosters[type]}
+              key={ind}
+              keyNumber={ind}
+            />
           </SwiperSlide>
         ))}
         <SlideNext />

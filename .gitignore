@@ -1,8 +1,10 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+.env
+Tmdb.txt
+
 # dependencies
 /node_modules
-.env
 /.pnp
 .pnp.js
 
