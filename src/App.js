@@ -11,10 +11,16 @@ import Row from "./components/Row/Row";
 import requests from "./requests/requests";
 
 import "./App.css";
+import { useState } from "react";
 
 function App() {
-  // requests.discoverMoviesRandom();
-  requests.discoverTVRandom();
+  const [rows, setRows] = useState({
+    home: [],
+    surpriseme: [],
+    categories: [],
+  });
+  const [genreMovies, setGenreMovies] = useState([]);
+  const [genreTV, setGenreTV] = useState([]);
 
   return (
     <div className="App">
