@@ -1,3 +1,7 @@
+:root {
+    --main-background-color: #141414;
+}
+
 .profile {
     margin-right: 1vw;
     margin-left: 1vw;
@@ -7,8 +11,16 @@
     height: 12.5vw;
     width: 12.5vw;
     border-radius: 1vh;
+    border: 3px solid var(--main-background-color);
+
+    transition: all 0.8s ease-out;
 }
 
 .text {
     margin-top: 2vw;
+}
+
+.profile:hover .box{
+    border-color: white;
+    
 }

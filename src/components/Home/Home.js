@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { FaPlay } from "react-icons/fa";
 
+import Details from "../Details/Details";
 import "./styles/styles.css";
 
 // there are two diff styles on this page
@@ -9,7 +11,6 @@ import "./styles/styles.css";
 
 function Home(props) {
   const [highlight, setHighlight] = useState("highlight");
-  const [normal, setNormal] = useState(true);
   // since the styles depend if whether we are at the top or not
   // ive put them in a state instead
 
@@ -30,8 +31,43 @@ function Home(props) {
 
   return (
     <div className="highlightpage">
-      <div className={`description description-${highlight}`}></div>
-      <div className={`trailer trailer-${highlight}`}></div>
+      <div className={`description description-${highlight}`}>
+        <div className={`description-details description-details-${highlight}`}>
+          <Details
+            textAlign="left"
+            width="700px"
+            fontSize={"2vw"}
+            original={true}
+            name="Super Saiyan"
+            description={
+              "A story about a fight that never occured. But nerds made it happen anyway!"
+            }
+            categories={["Action", "Anime", "Super Powers"]}
+          />
+        </div>
+      </div>
+      <div className={`trailer trailer-${highlight}`}>
+        <div className={`trailer-details trailer-details-${highlight}`}>
+          <Details
+            textAlign="left"
+            width="500px"
+            fontSize={"2vw"}
+            original={true}
+            name="Super Saiyan"
+            description={
+              "A story about a fight that never occured. But nerds made it happen anyway!"
+            }
+            categories={["Action", "Anime", "Super Powers"]}
+          />
+          <button className="trailer-button">
+            <span>
+              <FaPlay className="play-icon" />
+            </span>
+            Play
+          </button>
+          <button className="trailer-button">More Info</button>
+        </div>
+      </div>
       <div className={`rows rows-${highlight}`} id="rows"></div>
     </div>
   );

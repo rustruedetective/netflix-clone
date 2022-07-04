@@ -59,6 +59,8 @@
     outline: none;
     border: none;
     background-color: var(--grey);
+
+    transition: all 0.3s ease-out;
 }
 .surprise-link {
     height: 100%;
@@ -71,6 +73,11 @@
 .surprise-link span {
     font-weight: bold;
     font-size: 1.4vw;
+
+    transition: all 0.2s ease-out;
+}
+.surprise-link-icon {
+    transition: all 0.2s ease-out;
 }
 
 .buttons-area2 button:hover {
@@ -84,4 +91,22 @@
 }
 .buttons-area2 button:hover .surprise-link-icon {
     fill: url(#gradient);
+}
+
+.profile-icon-wrapper {
+    margin-top: 2vw;
+}
+.profile-icon-wrapper2 {
+    color:grey;
+}
+.profile-icon {
+    border: 3px solid grey;
+    border-radius: 50%;
+    padding: 3px;
+}
+.profile-icon-wrapper2:hover {
+    color:white;
+}
+.profile-icon-wrapper2:hover .profile-icon {
+    border-color: white;
 }

@@ -1,5 +1,7 @@
 import React from "react";
+
 import Category from "./Category";
+import Details from "../Details/Details";
 
 import "./styles/styles.css";
 
@@ -19,6 +21,16 @@ function Categories({ categories }) {
         {categories.map((el, ind) => (
           <Category name={el.name} active={el.active} key={ind} />
         ))}
+      </div>
+      <div className="category-details">
+        <Details
+          textAlign="right"
+          width="500px"
+          fontSize={"2vw"}
+          original={true}
+          name="Super Saiyan"
+          categories={["Action", "Anime", "Super Powers"]}
+        />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { TiArrowShuffle } from "react-icons/ti";
+import { RiPencilFill } from "react-icons/ri";
 
 import ProfileBox from "../ProfileBox/ProfileBox";
 import "./styles/styles.css";
@@ -54,8 +55,14 @@ function ProfileSelect() {
                 <span>Surprise Me</span>
               </Link>
             </button>
-            <div>
-              <span>icon</span>
+            <div className="profile-icon-wrapper">
+              <span className="profile-icon-wrapper2">
+                <RiPencilFill
+                  className="profile-icon"
+                  size={35}
+                  viewBox={"-3 -3 30 30"}
+                />
+              </span>
             </div>
           </div>
         </div>

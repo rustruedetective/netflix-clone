@@ -12,6 +12,7 @@ import requests from "./requests/requests";
 
 import "./App.css";
 import { useState } from "react";
+import Details from "./components/Details/Details";
 
 function App() {
   const [rows, setRows] = useState({
@@ -78,8 +79,6 @@ function App() {
           }
         />
       </Routes>
-      {/* <Menu />
-      <Row type="normal" /> */}
     </div>
   );
 }

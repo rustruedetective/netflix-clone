@@ -33,7 +33,6 @@
 }
 
 .posters {
-    height: 80vh;
     grid-area: posters;
     padding-top: 10vh;
 

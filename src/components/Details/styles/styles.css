@@ -1,0 +1,18 @@
+.details {
+    color: white;
+}
+.details div {
+    /* If no content is provided, this will still show up */
+    /* Provide a proper layout to remove these margins */
+    margin-bottom: 1vw;
+}
+.details-netflix-original {
+    letter-spacing: 3px;
+}
+.netflix-icon {
+    color: red;
+    vertical-align: bottom;
+}
+.details-categories {
+    letter-spacing: 1px;
+}

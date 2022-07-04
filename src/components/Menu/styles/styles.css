@@ -25,7 +25,7 @@
     width: calc(var(--menu-icon-width)*7);
 }
 
-.acrive-profile {
+.active-profile {
     height: 20vh;
     width: calc(var(--menu-icon-width) * 7);
 

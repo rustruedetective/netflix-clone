@@ -1,11 +1,13 @@
 :root {
     /* aspect ratio is 16:9 (720p) */
-    --normal-trailer-height: 50vh;
-    --normal-trailer-width: 112vh;
+    --normal-trailer-height: 65vh;
+    --normal-trailer-width: 145.6vh;
 
     --highlight-rows-height: 28vh;
 
     --main-background-color: #141414;
+
+    --menu-icon-width: 1.5rem;
 }
 
 
@@ -32,6 +34,19 @@
 .description-normal {
     width: calc(100vw - var(--normal-trailer-width));
 }
+.description-details {
+    position: absolute;
+    left: 8vw;
+    top: 2vw;
+    
+    transition: all 1s ease-out;
+}
+.description-details-highlight {
+    opacity: 0;
+}
+.description-details-normal {
+    opacity: 1;
+}
 
 
 .trailer {
@@ -39,20 +54,57 @@
     top: 0;
     right: 0;
     transition: cubic-bezier(.08,1.05,.92,.95) 1s;
-    background-color: red;
+    background-color: blue;
 }
 .trailer-highlight {
     height: 80%;
     width: 100%;
 }
 .trailer-normal {
-    box-shadow: inset calc(var(--normal-trailer-width) / 5)
+    box-shadow: inset calc(var(--normal-trailer-width) / 10)
      calc(-1 * calc(var(--normal-trailer-height) / 5))
-      10vh
-      -30px
+      7vw
+      2vw
       var(--main-background-color);
     height: var(--normal-trailer-height);
     width: var(--normal-trailer-width);
+}
+.trailer-details {
+    position: absolute;
+    left: 8vw;
+    bottom: 8vw;
+    
+    transition: all 1s ease-out;
+}
+.trailer-details-highlight {
+    opacity: 1;
+}
+.trailer-details-normal {
+    opacity: 0;
+}
+
+.trailer-button {
+    margin-top: 2vw;
+    margin-right: 1vw;
+    height: 2.5vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+
+    background-color: grey;
+    color: white;
+    font-weight: bold;
+    font-size: 1.05rem;
+    border: none;
+    border-radius: 4px;
+}
+.play-icon {
+    position: relative;
+    top: 0.5vh;
+    margin-right: 0.5vw;
+}
+.trailer-button:hover {
+    background-color: white;
+    color: black;
 }
 
 .rows {
