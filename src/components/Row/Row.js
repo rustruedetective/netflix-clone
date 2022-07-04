@@ -35,9 +35,8 @@ const typesOfPosters = {
   },
 };
 
-function Row({ row, type }) {
-  const [slidesPerView, setSlidesPerView] = useState(0);
-  row = [
+function Row({ rowArray, type }) {
+  rowArray = [
     { name: "name abc", src: "https://random.imagecdn.app/416/625" },
     { name: "name abc", src: "https://random.imagecdn.app/416/625" },
     { name: "name abc", src: "https://random.imagecdn.app/416/625" },
@@ -54,7 +53,12 @@ function Row({ row, type }) {
     { name: "name abc", src: "https://random.imagecdn.app/416/625" },
     { name: "name abc", src: "https://random.imagecdn.app/416/625" },
   ];
-  type = "numbered";
+  const [slidesPerView, setSlidesPerView] = useState(0);
+  const row = rowArray.map((el, ind) => (
+    <SwiperSlide key={ind}>
+      <Poster {...el} type={typesOfPosters[type]} key={ind} keyNumber={ind} />
+    </SwiperSlide>
+  ));
 
   // setting the slides to display per slide
   // we can set a no by width of slider/width of all slides+space between them
@@ -85,17 +89,7 @@ function Row({ row, type }) {
         freeMode
         preloadImages
       >
-        {/* Array of posters */}
-        {row.map((el, ind) => (
-          <SwiperSlide key={ind}>
-            <Poster
-              {...el}
-              type={typesOfPosters[type]}
-              key={ind}
-              keyNumber={ind}
-            />
-          </SwiperSlide>
-        ))}
+        {row}
         <SlideNext />
         <SlidePrev />
       </Swiper>

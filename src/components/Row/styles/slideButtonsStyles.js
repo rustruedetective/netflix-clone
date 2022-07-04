@@ -25,4 +25,10 @@ const leftStyle = {
     "linear-gradient(90deg, rgba(20,20,20,0.1) 0%, rgba(20,20,20,0.01) 100%)",
 };
 
-export { styles, rightStyle, leftStyle };
+const iconStyle = {
+  color: "#d3d3bd",
+  height: "40px",
+  width: "40px",
+};
+
+export { styles, rightStyle, leftStyle, iconStyle };

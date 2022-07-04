@@ -17,8 +17,8 @@ function Menu() {
       onMouseEnter={(_) => setMenu(true)}
       onMouseLeave={(_) => setMenu(false)}
     >
-      <div className="profile">
-        <div className="profile-content"></div>
+      <div className="active-profile">
+        <div className="active-profile-content"></div>
       </div>
       <div className="navigation">
         <ul className="navigation-list">

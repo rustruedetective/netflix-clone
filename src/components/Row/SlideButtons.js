@@ -1,7 +1,13 @@
 import { React } from "react";
+import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import { useSwiper } from "swiper/react";
 
-import { styles, rightStyle, leftStyle } from "./styles/slideButtonsStyles";
+import {
+  styles,
+  rightStyle,
+  leftStyle,
+  iconStyle,
+} from "./styles/slideButtonsStyles";
 
 function SlideNext() {
   const swiper = useSwiper();
@@ -10,7 +16,9 @@ function SlideNext() {
     <button
       style={{ ...styles, ...rightStyle }}
       onClick={() => swiper.slideNext()}
-    ></button>
+    >
+      <BsChevronRight style={{ ...iconStyle }} />
+    </button>
   );
 }
 
@@ -21,7 +29,9 @@ function SlidePrev() {
     <button
       style={{ ...styles, ...leftStyle }}
       onClick={() => swiper.slidePrev()}
-    ></button>
+    >
+      <BsChevronLeft style={{ ...iconStyle }} />
+    </button>
   );
 }
 

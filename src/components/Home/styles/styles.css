@@ -21,7 +21,7 @@
     top: 0;
     left: 0;
     height: var(--normal-trailer-height);
-    background: red;
+    background: var(--main-background-color);
     transition: cubic-bezier(.08,1.05,.92,.95) 1s;
 
     z-index: 3;
@@ -38,14 +38,19 @@
     position: absolute;
     top: 0;
     right: 0;
-    background-color: blue;
     transition: cubic-bezier(.08,1.05,.92,.95) 1s;
+    background-color: red;
 }
 .trailer-highlight {
     height: 80%;
     width: 100%;
 }
 .trailer-normal {
+    box-shadow: inset calc(var(--normal-trailer-width) / 5)
+     calc(-1 * calc(var(--normal-trailer-height) / 5))
+      10vh
+      -30px
+      var(--main-background-color);
     height: var(--normal-trailer-height);
     width: var(--normal-trailer-width);
 }

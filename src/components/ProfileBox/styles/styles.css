@@ -1,9 +1,14 @@
 .profile {
-    margin: 10px;
+    margin-right: 1vw;
+    margin-left: 1vw;
     text-align: center;
 }
 .box {
-    height: 170px;
-    width: 170px;
-    background-color: blueviolet;
+    height: 12.5vw;
+    width: 12.5vw;
+    border-radius: 1vh;
+}
+
+.text {
+    margin-top: 2vw;
 }

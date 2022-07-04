@@ -5,33 +5,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 5;
+    z-index: 1;
 }
 
-.wrapper {
-    height: 90vh;
-    width: 90vw;
-    border-radius: 1.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(90deg,#ec5058, #e40914);
-    z-index: 6;
+.logo {
+  background: transparent;
+  z-index: 3;
 }
 
-.slider-thumb1::before {
+.slider-thumb::before {
 	position: absolute;
 	content: "";
-	left: 60%;
-	top: 30%;
+	left: 55%;
+	top: 25%;
 	width: 70vh;
 	height: 70vh;
-	background: #141414;
+	background: #e50914;
 	border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
 	will-change: border-radius, transform, opacity;
 	animation: sliderShape1 5s linear infinite;
 	display: block;
-	z-index: -1;
+	z-index: 2;
 	-webkit-animation: sliderShape1 5s linear infinite;
 }
 @keyframes sliderShape1{

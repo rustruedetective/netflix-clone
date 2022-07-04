@@ -1,3 +1,4 @@
+import { Disc } from "grommet-icons";
 import React from "react";
 import { ReactComponent as Tmdb } from "./resources/tmdb.svg";
 
@@ -9,9 +10,8 @@ const redColor = "#e50914";
 function Source() {
   return (
     <div className="main">
-      <div className="wrapper">
-        <div className="slider-thumb1"></div>
-        <div className="slider-thumb2"></div>
+      <div className="slider-thumb"></div>
+      <div className="logo">
         <Tmdb style={{ height: "80vh", width: "80vw" }} />
       </div>
     </div>

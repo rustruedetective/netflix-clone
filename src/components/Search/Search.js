@@ -13,15 +13,15 @@ function SearchPage({ categories }) {
     // we cant control, so we must use useRef
     const postersArea = ref.current;
 
-    const handler = (e) => {
+    const scrollHandler = (e) => {
       if (e.deltaY >= 100) setScrolling(true);
       else if (e.deltaY <= -100 && e.srcElement.scrollTop === 0)
         setScrolling(false);
     };
 
-    postersArea.addEventListener("mousewheel", handler);
+    postersArea.addEventListener("mousewheel", scrollHandler);
 
-    return (_) => postersArea.removeEventListener("mousewheel", handler);
+    return (_) => postersArea.removeEventListener("mousewheel", scrollHandler);
   }, []);
 
   return (

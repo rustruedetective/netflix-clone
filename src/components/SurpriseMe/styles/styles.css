@@ -1,4 +1,4 @@
-.surpriseme {
+.surprise {
     height: 100vh;
     width: 100vw;
     background-color: black;
@@ -7,40 +7,109 @@
     justify-content: center;
 }
 
-.surpriseme-trailer {
-    height: 90vh;
-    width: 90vw;
-    background: transparent;
-    border: 3.5px solid whitesmoke;
-    border-radius: 2.5vh;
+.colorWrapper {
+    width: calc(90vw + 5px);
+    height: calc(90vh + 5px);
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.surpriseme-interactible-left {
+.colorBlack {
+    position: absolute;
+    height: 8vw;
+    width: 100%;
+
+    background-color: black;
+}
+
+.surprise-trailer {
+    height: 90vh;
+    width: 90vw;
+    background: black;
+    border-radius: 10px;
+    
+}
+
+.surprise-interactible-left {
     height: 100vh;
     position: absolute;
     left: 0;
     display: flex;
     align-items: center;
-    padding-left: 5vw;
     background: transparent;
     color: white;
+
 }
 
-.surpriseme-interactible-right {
+.surprise-interactible-right {
     height: 100vh;
     position: absolute;
     right: 0;
     display: flex;
     align-items: center;
-    padding-right: 5vw;
     background: transparent;
     color: white;
+
 }
 
 .exit {
     position: absolute;
-    top: 10vh;
+    top: 5vh;
     left: 8vw;
     color: white;
     z-index: 1;
+
+    transition: all 0.4s ease-out;
+}
+.exit-icon {
+    border: 0px solid white;
+    vertical-align: sub;
+    transition: all 0.4s ease-out;
+}
+.exit-text {
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.4s ease-out;
+}
+.exit-hover-wrapper {
+    height: 20vh;
+    width: 20vh;
+}
+
+.exit-hover-wrapper:hover .exit {
+    top: 10vh;
+}
+.exit-hover-wrapper:hover .exit-icon {
+    stroke-width: 2;
+}
+.exit-hover-wrapper:hover .exit-text {
+    font-size: 20px;
+}
+
+.l-icon {
+    margin-left: 2vw;
+    height: 5vw;
+    width: 5vw;
+
+    transition: all 0.2s ease-out;
+}
+.r-icon {
+    margin-right: 2vw;
+    height: 5vw;
+    width: 5vw;
+
+    transition: all 0.2s ease-out;
+}
+.l-icon:hover {
+    margin-left: 1vw;
+    height: 7vw;
+    width: 7vw;
+} 
+.r-icon:hover {
+    margin-right: 1vw;
+    height: 7vw;
+    width: 7vw;
 }
