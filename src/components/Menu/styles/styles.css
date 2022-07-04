@@ -16,13 +16,14 @@
 
     transition: width 0.5s ease-out;
 
-    background: linear-gradient(90deg, rgba(20,20,20,1) 0%, rgba(20,20,20,0.1) 100%);
+    background: linear-gradient(90deg, rgba(20,20,20,1) 0%, rgba(20,20,20,0.5) 50%,rgba(20,20,20,0.2) 75%,rgba(20,20,20,0.1) 90%,rgba(20,20,20,0.01)  100%);
 
     z-index: 10;
 }
 
 .menu-active {
     width: calc(var(--menu-icon-width)*7);
+    background: linear-gradient(90deg, rgba(20,20,20,1) 0%, rgba(20,20,20,0.8) 50%,rgba(20,20,20,0.5) 75%,rgba(20,20,20,0.3) 90%,rgba(20,20,20,0.1)  100%);
 }
 
 .active-profile {

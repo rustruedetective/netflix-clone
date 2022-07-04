@@ -5,4 +5,8 @@ const styles = {
   marginLeft: "auto",
 };
 
-export { styles };
+const RowTitleStyles = {
+  marginBottom: "1vh",
+};
+
+export { styles, RowTitleStyles };

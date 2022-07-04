@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 import { SlideNext, SlidePrev } from "./SlideButtons";
-import { styles } from "./styles/styles";
+import { styles, RowTitleStyles } from "./styles/styles";
 import Poster from "../Poster/Poster";
 
 // we need to provide height and width of whole poster here
@@ -35,7 +35,7 @@ const typesOfPosters = {
   },
 };
 
-function Row({ rowArray, type }) {
+function Row({ type, rowArray, rowTitle }) {
   rowArray = [
     { name: "name abc", src: "https://random.imagecdn.app/416/625" },
     { name: "name abc", src: "https://random.imagecdn.app/416/625" },
@@ -78,22 +78,27 @@ function Row({ rowArray, type }) {
   }, []);
 
   return (
-    <div className="row" style={styles}>
-      <Swiper
-        ref={ref}
-        slidesPerView={slidesPerView.toFixed(2)}
-        navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        }}
-        freeMode
-        preloadImages
-      >
-        {row}
-        <SlideNext />
-        <SlidePrev />
-      </Swiper>
-    </div>
+    <>
+      <div className="row" style={styles}>
+        <div className="row-title" style={RowTitleStyles}>
+          <h3>{rowTitle}</h3>
+        </div>
+        <Swiper
+          ref={ref}
+          slidesPerView={slidesPerView.toFixed(2)}
+          navigation={{
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          }}
+          freeMode
+          preloadImages
+        >
+          {row}
+          <SlideNext />
+          <SlidePrev />
+        </Swiper>
+      </div>
+    </>
   );
 }
 

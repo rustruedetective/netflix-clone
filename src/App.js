@@ -3,12 +3,12 @@ import { Routes, Route } from "react-router-dom";
 import ProfileSelect from "./components/ProfileSelect/ProfileSelect";
 import Menu from "./components/Menu/Menu";
 import Search from "./components/Search/Search";
-import Home from "./components/Home/Home";
+import Main from "./components/Main/Main";
 import SurpriseMe from "./components/SurpriseMe/SurpriseMe";
 import Categories from "./components/Categories/Categories";
 import Source from "./components/Source/Source";
 import Row from "./components/Row/Row";
-import requests from "./requests/requests";
+import request from "./request/request";
 
 import "./App.css";
 import { useState } from "react";
@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      <Routes>
+      {/* <Routes>
         <Route
           path="/"
           element={
@@ -48,7 +48,7 @@ function App() {
           element={
             <>
               <Menu />
-              <Home />
+              <Main page={"Home"} />
             </>
           }
         />
@@ -78,7 +78,9 @@ function App() {
             </>
           }
         />
-      </Routes>
+      </Routes> */}
+      {/* <Menu />
+      <Row type="normal" rowTitle={"ABC"} /> */}
     </div>
   );
 }
