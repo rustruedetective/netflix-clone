@@ -1,11 +1,38 @@
-import React, { createContext } from "react";
+import React, { createContext, useReducer } from "react";
+
+import {
+  homeData,
+  newData,
+  filmData,
+  tvData,
+  surpriseData,
+  searchData,
+  categoryData,
+} from "./Helpers/reducerHelpers";
 
 const context = createContext([]);
 
 function Context({ children }) {
-  const rowMatrix = "this is value 123";
+  const pageReducer = async (state, action) => {
+    if (action.page === "home") {
+      const data = await homeData();
+      return data;
+    }
+    if (action.page === "new") return newData();
+    if (action.page === "film") return filmData();
+    if (action.page === "tv") return tvData();
+    if (action.page === "surprise") return surpriseData();
+    if (action.page === "search") return searchData();
+    if (action.page === "category") return categoryData();
+    return {};
+  };
+  const [data, dispatch] = useReducer(pageReducer, "abc");
 
-  return <context.Provider value={rowMatrix}>{children}</context.Provider>;
+  return (
+    <context.Provider value={{ data: data, setData: dispatch }}>
+      {children}
+    </context.Provider>
+  );
 }
 
 export { context };

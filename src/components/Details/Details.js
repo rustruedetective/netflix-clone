@@ -14,10 +14,13 @@ function Details({
   categories,
 }) {
   let categoriesEl = [];
-  categories?.map((el) => {
+  categories?.map((el, ind) => {
     categoriesEl.push(" " + el + " ");
     categoriesEl.push(
-      <GoPrimitiveDot style={{ verticalAlign: "middle", color: "grey" }} />
+      <GoPrimitiveDot
+        style={{ verticalAlign: "middle", color: "grey" }}
+        key={ind}
+      />
     );
   });
   categoriesEl.pop();

@@ -1,6 +1,6 @@
 const IMG_URL = process.env.REACT_APP_IMG_URL;
 
-const requestPage = async (url, page, query, genre) => {
+const requestTop = async (url, page, query, genre) => {
   // Request a page
   if (url.includes("&page=")) url = url.replace("&page=", `&page=${page}`);
   if (url.includes("&query=")) url = url.replace("&query=", `&query=${query}`);
@@ -12,16 +12,16 @@ const requestPage = async (url, page, query, genre) => {
   return data;
 };
 
-const requestRandomPage = async (url, query, genre) => {
+const requestRandom = async (url, query, genre) => {
   // First get the total no. of pages available
-  const data1 = await requestPage(url, 1, query, genre);
+  const data1 = await requestTop(url, 1, query, genre);
 
   let pages = data1.total_pages;
   pages = pages < 500 ? pages : 490; // we cannot request a page above 500 pages
 
   // Then request a random page among them
   const page = Math.floor(Math.random() * (pages - 1)) + 1; // avoid the last page, as it might not have 20 results
-  const data2 = await requestPage(url, page, query, genre);
+  const data2 = await requestTop(url, page, query, genre);
 
   return data2;
 };
@@ -54,4 +54,4 @@ const processGenres = async (data) => {
   return { genresByName, genresById };
 };
 
-export { requestPage, requestRandomPage, processItems, processGenres };
+export { requestTop, requestRandom, processItems, processGenres };
