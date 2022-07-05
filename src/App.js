@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
+import { context } from "./components/Context/Context";
 import ProfileSelect from "./components/ProfileSelect/ProfileSelect";
 import Menu from "./components/Menu/Menu";
 import Search from "./components/Search/Search";
@@ -14,6 +16,13 @@ import Details from "./components/Details/Details";
 import "./App.css";
 
 function App() {
+  const { data, setData } = useContext(context);
+  const location = useLocation();
+
+  useEffect(() => {
+    setData(location.pathname);
+  }, [location]);
+
   return (
     <div className="App">
       <Routes>
@@ -30,7 +39,7 @@ function App() {
           element={
             <>
               <Menu />
-              <Search />
+              <Search data={data} />
             </>
           }
         />
@@ -39,24 +48,24 @@ function App() {
           element={
             <>
               <Menu />
-              <Main page={"Home"} />
+              <Main data={data} />
             </>
           }
         />
         <Route
-          path="/surpriseme"
+          path="/surprise"
           element={
             <>
-              <SurpriseMe />
+              <SurpriseMe data={data} />
             </>
           }
         />
         <Route
-          path="/categories"
+          path="/category"
           element={
             <>
               <Menu />
-              <Categories />
+              <Categories data={data} />
             </>
           }
         />

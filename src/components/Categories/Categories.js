@@ -5,7 +5,8 @@ import Details from "../Details/Details";
 
 import "./styles/styles.css";
 
-function Categories({ categories }) {
+function Categories({ data, categories }) {
+  console.log(data);
   categories = [
     { name: "Action", active: false },
     { name: "Horror", active: false },

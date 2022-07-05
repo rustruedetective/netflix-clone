@@ -2,6 +2,25 @@ import request from "../../../request/request";
 
 const homeData = async (_) => {
   const homeData = { highlight: {}, rowMatrix: [] };
+  const rowMatrixRequests = [
+    { name: "", row: [] },
+    { name: "", row: [] },
+    { name: "", row: [] },
+    { name: "", row: [] },
+    { name: "", row: [] },
+    { name: "", row: [] },
+    { name: "", row: [] },
+    { name: "", row: [] },
+    { name: "", row: [] },
+    { name: "", row: [] },
+  ];
+  const trendingRow = await request.trending.all();
+
+  try {
+    homeData.highlight = trending[Math.floor(Math.random() * trending.length)];
+  } catch (Error) {
+    console.log("Data Error");
+  }
 
   return homeData;
 };
@@ -24,22 +43,22 @@ const tvData = async (_) => {
   return tvData;
 };
 
-const surpriseData = async (_) => {
-  const surpriseData = { highlight: {}, rowMatrix: [] };
+const categoryData = async (_) => {
+  const categoryData = { rowMatrix: [] };
 
-  return surpriseData;
+  return categoryData;
 };
 
 const searchData = async (_) => {
-  const searchData = { highlight: {}, rowMatrix: [] };
+  const searchData = { rows: [], searchFunction: null };
 
   return searchData;
 };
 
-const categoryData = async (_) => {
-  const categoryData = { highlight: {}, rowMatrix: [] };
+const surpriseData = async (_) => {
+  const surpriseData = { rows: [] };
 
-  return categoryData;
+  return surpriseData;
 };
 
 export {

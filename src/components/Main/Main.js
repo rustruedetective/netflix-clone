@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useState, useEffect } from "react";
 import { FaPlay } from "react-icons/fa";
 
-import { context } from "../Context/Context";
 import Details from "../Details/Details";
 import "./styles/styles.css";
 
@@ -10,25 +9,23 @@ import "./styles/styles.css";
 // first at the top, when we have the highlighted show
 // second when we scroll down and get normal shows
 
-function Main({ page, highlightItem, rowsMatrix }) {
+function Main({ data }) {
+  console.log(data);
   const [highlight, setHighlight] = useState("highlight");
   // since the styles depend if whether we are at the top or not
   // ive put them in a state instead
-
-  const { data, setData } = useContext(context);
-  console.log(data);
 
   useEffect(() => {
     const scrollHandler = (e) => {
       // This getElementById is still working, because this event is fired
       // when the component has already loaded, so we do dont get null error
       const el = document.getElementById("rows");
-      setData({ page: "home" });
 
       if (e.deltaY >= 100) setHighlight("normal");
       else if (e.deltaY <= -100 && el.scrollTop === 0)
         setHighlight("highlight");
     };
+
     window.addEventListener("mousewheel", scrollHandler);
     return () => window.removeEventListener("mousewheel", scrollHandler);
   }, []);

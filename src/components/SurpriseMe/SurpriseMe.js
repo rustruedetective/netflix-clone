@@ -5,7 +5,8 @@ import { MdKeyboardArrowUp } from "react-icons/md";
 
 import "./styles/styles.css";
 
-function SurpriseMe() {
+function SurpriseMe({ data }) {
+  console.log(data);
   const ref = useRef(null);
 
   useEffect((_) => {

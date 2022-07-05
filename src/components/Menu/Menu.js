@@ -33,12 +33,12 @@ function Menu() {
             </MenuItem>
           </li>
           <li>
-            <MenuItem title="Surprise Me" href="/surpriseme">
+            <MenuItem title="Surprise Me" href="/surprise">
               <TbArrowsShuffle2 className="icon" />
             </MenuItem>
           </li>
           <li>
-            <MenuItem title="Categories" href="/categories">
+            <MenuItem title="Categories" href="/category">
               <FaShapes className="icon" />
             </MenuItem>
           </li>

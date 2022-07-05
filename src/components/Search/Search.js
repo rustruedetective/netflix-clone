@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 
 import "./styles/styles.css";
 
-function SearchPage({ categories }) {
+function SearchPage({ data, categories }) {
+  console.log(data);
   const [scrolling, setScrolling] = useState(false);
   const ref = useRef(null);
   categories = ["horror", "action"];
@@ -20,7 +21,6 @@ function SearchPage({ categories }) {
     };
 
     postersArea.addEventListener("mousewheel", scrollHandler);
-
     return (_) => postersArea.removeEventListener("mousewheel", scrollHandler);
   }, []);
 

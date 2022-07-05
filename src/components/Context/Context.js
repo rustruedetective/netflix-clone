@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useState } from "react";
 
 import {
   homeData,
@@ -13,23 +13,41 @@ import {
 const context = createContext([]);
 
 function Context({ children }) {
-  const pageReducer = async (state, action) => {
-    if (action.page === "home") {
-      const data = await homeData();
-      return data;
+  const [data, setData] = useState({});
+  const setHandler = async (page) => {
+    if (page === "/home") {
+      const result = await homeData();
+      setData(result);
     }
-    if (action.page === "new") return newData();
-    if (action.page === "film") return filmData();
-    if (action.page === "tv") return tvData();
-    if (action.page === "surprise") return surpriseData();
-    if (action.page === "search") return searchData();
-    if (action.page === "category") return categoryData();
+    if (page === "/new") {
+      const result = await newData();
+      setData(result);
+    }
+    if (page === "/film") {
+      const result = await filmData();
+      setData(result);
+    }
+    if (page === "/tv") {
+      const result = await tvData();
+      setData(result);
+    }
+    if (page === "/surprise") {
+      const result = await surpriseData();
+      setData(result);
+    }
+    if (page === "/search") {
+      const result = await searchData();
+      setData(result);
+    }
+    if (page === "/category") {
+      const result = await categoryData();
+      setData(result);
+    }
     return {};
   };
-  const [data, dispatch] = useReducer(pageReducer, "abc");
 
   return (
-    <context.Provider value={{ data: data, setData: dispatch }}>
+    <context.Provider value={{ data: data, setData: setHandler }}>
       {children}
     </context.Provider>
   );
