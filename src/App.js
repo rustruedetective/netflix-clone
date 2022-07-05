@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom";
+import { useContext, useState } from "react";
 
+import { context } from "./components/Context/Context";
 import ProfileSelect from "./components/ProfileSelect/ProfileSelect";
 import Menu from "./components/Menu/Menu";
 import Search from "./components/Search/Search";
@@ -8,11 +10,10 @@ import SurpriseMe from "./components/SurpriseMe/SurpriseMe";
 import Categories from "./components/Categories/Categories";
 import Source from "./components/Source/Source";
 import Row from "./components/Row/Row";
-import request from "./request/request";
-
-import "./App.css";
-import { useState } from "react";
 import Details from "./components/Details/Details";
+
+import request from "./request/request";
+import "./App.css";
 
 function App() {
   const [rows, setRows] = useState({
@@ -22,6 +23,9 @@ function App() {
   });
   const [genreMovies, setGenreMovies] = useState([]);
   const [genreTV, setGenreTV] = useState([]);
+
+  const rowMatrix = useContext(context);
+  console.log(rowMatrix);
 
   return (
     <div className="App">

@@ -9,18 +9,18 @@ import {
 // request function for each type of row
 const request = {
   trending: {
-    items: async (setState) => {
-      let data = await requestPage(urls.trendingItems, 1);
+    all: async (setState) => {
+      let data = await requestPage(urls.trending.all, 1);
       data = await processItems(data);
       setState(data);
     },
     movies: async (setState) => {
-      let data = await requestPage(urls.trendingMovies, 1);
+      let data = await requestPage(urls.trending.movies, 1);
       data = await processItems(data);
       setState(data);
     },
     tv: async (setState) => {
-      let data = await requestPage(urls.trendingTV, 1);
+      let data = await requestPage(urls.trending.tv, 1);
       data = await processItems(data);
       setState(data);
     },
@@ -28,24 +28,24 @@ const request = {
   discover: {
     top: {
       movies: async (setState) => {
-        let data = await requestPage(urls.discoverMovies, 1);
+        let data = await requestPage(urls.discover.movies, 1);
         data = await processItems(data);
         setState(data);
       },
       tv: async (setState) => {
-        let data = await requestPage(urls.discoverTV, 1);
+        let data = await requestPage(urls.discover.tv, 1);
         data = await processItems(data);
         setState(data);
       },
     },
     random: {
       movies: async (setState) => {
-        let data = await requestRandomPage(urls.discoverMovies);
+        let data = await requestRandomPage(urls.discover.movies);
         data = await processItems(data);
         setState(data);
       },
       tv: async (setState) => {
-        let data = await requestRandomPage(urls.discoverTV);
+        let data = await requestRandomPage(urls.discover.tv);
         data = await processItems(data);
         setState(data);
       },
@@ -54,24 +54,24 @@ const request = {
   nowPlaying: {
     top: {
       movies: async (setState) => {
-        let data = await requestPage(urls.nowPlayingMovies, 1);
+        let data = await requestPage(urls.nowPlaying.movies, 1);
         data = await processItems(data);
         setState(data);
       },
       tv: async (setState) => {
-        let data = await requestPage(urls.nowPlayingTV, 1);
+        let data = await requestPage(urls.nowPlaying.tv, 1);
         data = await processItems(data);
         setState(data);
       },
     },
     random: {
       movies: async (setState) => {
-        let data = await requestRandomPage(urls.nowPlayingMovies);
+        let data = await requestRandomPage(urls.nowPlaying.movies);
         data = await processItems(data);
         setState(data);
       },
       tv: async (setState) => {
-        let data = await requestRandomPage(urls.nowPlayingTV);
+        let data = await requestRandomPage(urls.nowPlaying.tv);
         data = await processItems(data);
         setState(data);
       },
@@ -80,24 +80,24 @@ const request = {
   top: {
     top: {
       movies: async (setState) => {
-        let data = await requestPage(urls.topMovies, 1);
+        let data = await requestPage(urls.top.movies, 1);
         data = await processItems(data);
         setState(data);
       },
       tv: async (setState) => {
-        let data = await requestPage(urls.topTV, 1);
+        let data = await requestPage(urls.top.tv, 1);
         data = await processItems(data);
         setState(data);
       },
     },
     random: {
       movies: async (setState) => {
-        let data = await requestRandomPage(urls.topMovies);
+        let data = await requestRandomPage(urls.top.movies);
         data = await processItems(data);
         setState(data);
       },
       tv: async (setState) => {
-        let data = await requestRandomPage(urls.topTV);
+        let data = await requestRandomPage(urls.top.movies);
         data = await processItems(data);
         setState(data);
       },
@@ -106,24 +106,24 @@ const request = {
   popular: {
     top: {
       movies: async (setState) => {
-        let data = await requestPage(urls.popularMovies, 1);
+        let data = await requestPage(urls.popular.movies, 1);
         data = await processItems(data);
         setState(data);
       },
       tv: async (setState) => {
-        let data = await requestPage(urls.popularTV, 1);
+        let data = await requestPage(urls.popular.tv, 1);
         data = await processItems(data);
         setState(data);
       },
     },
     random: {
       movies: async (setState) => {
-        let data = await requestRandomPage(urls.popularMovies);
+        let data = await requestRandomPage(urls.popular.movies);
         data = await processItems(data);
         setState(data);
       },
       tv: async (setState) => {
-        let data = await requestRandomPage(urls.popularTV);
+        let data = await requestRandomPage(urls.popular.tv);
         data = await processItems(data);
         setState(data);
       },
@@ -131,12 +131,12 @@ const request = {
   },
   search: {
     movies: async (setState, query) => {
-      let data = await requestRandomPage(urls.searchMovies, query);
+      let data = await requestRandomPage(urls.search.movies, query);
       data = await processItems(data);
       setState(data);
     },
     tv: async (setState, query) => {
-      let data = await requestRandomPage(urls.searchTV, query);
+      let data = await requestRandomPage(urls.search.tv, query);
       data = await processItems(data);
       setState(data);
     },
@@ -144,20 +144,9 @@ const request = {
   genre: {
     top: {
       movies: async (setState, genres) => {
-        let data = await requestPage(urls.discoverMoviesGenre, "", "", genres);
-        data = await processItems(data);
-        setState(data);
-      },
-      tv: async (setState, genres) => {
-        let data = await requestPage(urls.discoverTVGenre, "", "", genres);
-        data = await processItems(data);
-        setState(data);
-      },
-    },
-    random: {
-      movies: async (setState, genres) => {
-        let data = await requestRandomPage(
-          urls.discoverMoviesGenre,
+        let data = await requestPage(
+          urls.discover.genre.movies,
+          "",
           "",
           genres
         );
@@ -165,19 +154,44 @@ const request = {
         setState(data);
       },
       tv: async (setState, genres) => {
-        let data = await requestRandomPage(urls.discoverTVGenre, "", genres);
+        let data = await requestPage(
+          urls.discover.genre.movies,
+          "",
+          "",
+          genres
+        );
+        data = await processItems(data);
+        setState(data);
+      },
+    },
+    random: {
+      movies: async (setState, genres) => {
+        let data = await requestRandomPage(
+          urls.discover.genre.movies,
+          "",
+          genres
+        );
+        data = await processItems(data);
+        setState(data);
+      },
+      tv: async (setState, genres) => {
+        let data = await requestRandomPage(
+          urls.urls.discover.genre.tv,
+          "",
+          genres
+        );
         data = await processItems(data);
         setState(data);
       },
     },
     get: {
       movies: async (setState) => {
-        let data = await requestPage(urls.genreMovies);
+        let data = await requestPage(urls.genre.movies);
         data = await processGenres(data);
         setState(data);
       },
       tv: async (setState) => {
-        let data = await requestPage(urls.genreTV);
+        let data = await requestPage(urls.genre.tv);
         data = await processGenres(data);
         setState(data);
       },
