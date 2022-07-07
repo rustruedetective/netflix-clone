@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import { MdKeyboardArrowUp } from "react-icons/md";
 
+import Trailer from "../Trailer/Trailer";
 import "./styles/styles.css";
 
 function SurpriseMe({ data }) {
-  console.log(data);
   const ref = useRef(null);
+  const [item, setItem] = useState(5);
 
   useEffect((_) => {
     let transition1 = null;
@@ -19,7 +20,6 @@ function SurpriseMe({ data }) {
     };
 
     transition1 = setTimeout(handler, 2000);
-
     return (_) => clearTimeout(transition1);
   }, []);
 
@@ -28,6 +28,7 @@ function SurpriseMe({ data }) {
       <div className="colorWrapper">
         <div className="colorBlack"></div>
         <div className="surprise-trailer">
+          <Trailer wall={data?.row?.[item]?.wall} />
           <div className="trailer-content">
             <div className="exit-hover-wrapper">
               <div className="exit">
@@ -36,7 +37,7 @@ function SurpriseMe({ data }) {
                     className="exit-icon"
                     size={20}
                     viewBox={"2 2 20 20"}
-                  />{" "}
+                  />
                   <span className="exit-text">Exit</span>
                 </Link>
               </div>

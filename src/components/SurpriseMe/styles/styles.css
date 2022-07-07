@@ -26,12 +26,54 @@
 }
 
 .surprise-trailer {
+    position: relative;
+    overflow: hidden;
     height: 90vh;
     width: 90vw;
     background: black;
     border-radius: 10px;
-    
 }
+
+.trailer-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    color: white;
+    
+
+    transition: all 0.4s ease-out;
+}
+.exit-hover-wrapper {
+    position: absolute;
+    top : 1vh;
+    left: 3vh;
+    height: 10vh;
+    width: 10vh;
+    
+    transition: all 0.4s ease-out;
+}
+.exit-hover-wrapper:hover {
+    padding-top: 5vh;
+}
+.exit-hover-wrapper:hover .exit-icon {
+    stroke-width: 2;
+}
+.exit-hover-wrapper:hover .exit-text {
+    font-size: 20px;
+}
+.exit-icon {
+    border: 0px solid white;
+    vertical-align: sub;
+    transition: all 0.4s ease-out;
+}
+.exit-text {
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.4s ease-out;
+}
+
+
 
 .surprise-interactible-left {
     height: 100vh;
@@ -53,40 +95,6 @@
     background: transparent;
     color: white;
 
-}
-
-.exit {
-    position: absolute;
-    top: 5vh;
-    left: 8vw;
-    color: white;
-    z-index: 1;
-
-    transition: all 0.4s ease-out;
-}
-.exit-icon {
-    border: 0px solid white;
-    vertical-align: sub;
-    transition: all 0.4s ease-out;
-}
-.exit-text {
-    font-size: 15px;
-    font-weight: bold;
-    transition: all 0.4s ease-out;
-}
-.exit-hover-wrapper {
-    height: 20vh;
-    width: 20vh;
-}
-
-.exit-hover-wrapper:hover .exit {
-    top: 10vh;
-}
-.exit-hover-wrapper:hover .exit-icon {
-    stroke-width: 2;
-}
-.exit-hover-wrapper:hover .exit-text {
-    font-size: 20px;
 }
 
 .l-icon {

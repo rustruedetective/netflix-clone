@@ -81,20 +81,20 @@ const home = async (_) => {
     // },
   ];
 
-  // try {
-  //   data.highlight.name = highlightReq.name;
-  //   data.highlight.item = await highlightReq.request();
-  //   data.highlight.item =
-  //     data.highlight.item[randomNumber(data.highlight.item.length)];
+  try {
+    data.highlight.name = highlightReq.name;
+    data.highlight.item = await highlightReq.request();
+    data.highlight.item =
+      data.highlight.item[randomNumber(data.highlight.item.length)];
 
-  //   for (let el of rowMatrixReq) {
-  //     const row = await el.request();
-  //     data.rowMatrix.push({ name: el.name, row: row });
-  //     data.rowMatrix = shuffle(data.rowMatrix);
-  //   }
-  // } catch (Error) {
-  //   console.log("Data Error", Error);
-  // }
+    // for (let el of rowMatrixReq) {
+    //   const row = await el.request();
+    //   data.rowMatrix.push({ name: el.name, row: row });
+    //   data.rowMatrix = shuffle(data.rowMatrix);
+    // }
+  } catch (Error) {
+    console.log("Data Error", Error);
+  }
 
   return data;
 };

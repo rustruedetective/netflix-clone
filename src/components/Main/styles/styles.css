@@ -80,23 +80,6 @@
     opacity: 0;
 }
 
-.wall {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-
-    background-color: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 85%);
-
-    background-size: cover;
-    background-position: top;
-
-    z-index: 1;
-
-    filter: blur(4px);
-}
-
 .trailer-button {
     margin-top: 2vw;
     margin-right: 1vw;

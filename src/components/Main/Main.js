@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { FaPlay } from "react-icons/fa";
 
 import Details from "../Details/Details";
+import Trailer from "../Trailer/Trailer";
 import Row from "../Row/Row";
 import "./styles/styles.css";
 
@@ -57,22 +58,7 @@ function Main({ data }) {
       </div>
 
       <div className={`trailer trailer-${highlight}`}>
-        <div
-          className="wall"
-          style={{
-            backgroundImage: `radial-gradient(circle, rgba(0,0,0,0) 0%, 
-            rgba(20,20,20,0.2) 25%,
-            rgba(20,20,20,0.3) 35%,
-            rgba(20,20,20,0.4) 45%,
-            rgba(20,20,20,0.5) 55%,
-            rgba(20,20,20,0.6) 65%,
-            rgba(20,20,20,0.7) 75%,
-            rgba(20,20,20,0.8) 80%,
-            rgba(20,20,20,0.9) 85%,
-            rgba(20,20,20,  1) 95%),
-            url(${selected?.wall}`,
-          }}
-        ></div>
+        <Trailer wall={selected?.wall} />
         <div className={`trailer-details trailer-details-${highlight}`}>
           <Details
             textAlign="left"
