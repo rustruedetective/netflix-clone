@@ -30,6 +30,9 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
 //     3.3 popular
 //             top
 //             random
+//     3.4 similar
+//             top
+//             random
 // 4 tv
 //     4.1 nowPlaying
 //             top
@@ -69,11 +72,15 @@ const urls = {
     nowPlaying: `${BASE_URL}/movie/now_playing?api_key=${API_KEY}&language=en-US&page=`,
     top: `${BASE_URL}/movie/top_rated?api_key=${API_KEY}&language=en-US&page=`,
     popular: `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=`,
+    // under construction
+    similar: `${BASE_URL}/movie/movie_id/lists?api_key=${API_KEY}&language=en-US&page=`,
   },
   tv: {
     nowPlaying: `${BASE_URL}/tv/on_the_air?api_key=${API_KEY}&language=en-US&page=`,
     top: `${BASE_URL}/tv/top_rated?api_key=${API_KEY}&language=en-US&page=`,
     popular: `${BASE_URL}/tv/popular?api_key=${API_KEY}&language=en-US&page=`,
+    // under construction
+    // similar: `${BASE_URL}/movie/movie_id/lists?api_key=${API_KEY}&language=en-US&page=`,
   },
   search: {
     movies: `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&include_adult=false&page=&query=`,

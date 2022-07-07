@@ -1,3 +1,5 @@
+import { combinedGenresById } from "../data/preloaded";
+
 const IMG_URL = process.env.REACT_APP_IMG_URL;
 
 const requestTop = async (url, page, query, genre) => {
@@ -44,12 +46,12 @@ const processItems = async (data) => {
     data = data.map((el) => {
       return {
         name: el.original_title || el.original_name,
-        description: el.overview,
-        wall: `${IMG_URL}${el.backdrop_path}`,
-        poster: `${IMG_URL}${el.poster_path}`,
+        description: el.overview ? trimString(el.overview) : "",
+        wall: el.backdrop_path ? `${IMG_URL}${el.backdrop_path}` : "",
+        poster: el.poster_path ? `${IMG_URL}${el.poster_path}` : "",
         date: el.release_date || el.first_air_date,
-        genres: el.genre_ids,
-        rating: el.vote_average,
+        genres: el.genre_ids ? processGenreNamesById(el.genre_ids) : [],
+        rating: el.vote_average || 0,
       };
     });
   } catch (Error) {
@@ -57,6 +59,15 @@ const processItems = async (data) => {
   }
 
   return data;
+};
+
+const trimString = (str) => {
+  str = str.substring(0, 180);
+  if (str[179] !== ".") str += "...";
+  return str;
+};
+const processGenreNamesById = (arr) => {
+  return arr.map((el) => combinedGenresById[el]);
 };
 
 const processGenres = async (data) => {

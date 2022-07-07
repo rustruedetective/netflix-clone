@@ -1,7 +1,7 @@
 :root {
     /* aspect ratio is 16:9 (720p) */
-    --normal-trailer-height: 65vh;
-    --normal-trailer-width: 145.6vh;
+    --normal-trailer-height: 52vh;
+    --normal-trailer-width: 116.48vh;
 
     --highlight-rows-height: 28vh;
 
@@ -26,7 +26,7 @@
     background: var(--main-background-color);
     transition: cubic-bezier(.08,1.05,.92,.95) 1s;
 
-    z-index: 3;
+    z-index: 2;
 }
 .description-highlight {
     width: 0%;
@@ -54,18 +54,13 @@
     top: 0;
     right: 0;
     transition: cubic-bezier(.08,1.05,.92,.95) 1s;
-    background-color: blue;
+    background-color: var(--main-background-color);
 }
 .trailer-highlight {
     height: 80%;
     width: 100%;
 }
 .trailer-normal {
-    box-shadow: inset calc(var(--normal-trailer-width) / 10)
-     calc(-1 * calc(var(--normal-trailer-height) / 5))
-      7vw
-      2vw
-      var(--main-background-color);
     height: var(--normal-trailer-height);
     width: var(--normal-trailer-width);
 }
@@ -73,14 +68,33 @@
     position: absolute;
     left: 8vw;
     bottom: 8vw;
-    
+
     transition: all 1s ease-out;
+
+    z-index: 2;
 }
 .trailer-details-highlight {
     opacity: 1;
 }
 .trailer-details-normal {
     opacity: 0;
+}
+
+.wall {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    background-color: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 85%);
+
+    background-size: cover;
+    background-position: top;
+
+    z-index: 1;
+
+    filter: blur(4px);
 }
 
 .trailer-button {
@@ -117,12 +131,14 @@
 
     overflow-y: scroll;
     color: white;
+
+    z-index: 2;
 }
 .rows-highlight {
     height: var(--highlight-rows-height);
 }
 .rows-normal {
-    height: calc(100vh - var(--normal-trailer-height));
+    height: calc(100vh - var(--normal-trailer-height) + 6vh);
 }
 
 /* for hiding scroll */

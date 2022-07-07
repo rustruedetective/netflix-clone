@@ -35,28 +35,16 @@ const typesOfPosters = {
   },
 };
 
-function Row({ type, rowArray, rowTitle }) {
-  rowArray = [
-    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
-    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
-    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
-    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
-    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
-    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
-    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
-    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
-    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
-    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
-    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
-    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
-    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
-    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
-    { name: "name abc", src: "https://random.imagecdn.app/416/625" },
-  ];
+function Row({ name, type, rowArray }) {
   const [slidesPerView, setSlidesPerView] = useState(0);
   const row = rowArray.map((el, ind) => (
     <SwiperSlide key={ind}>
-      <Poster {...el} type={typesOfPosters[type]} key={ind} keyNumber={ind} />
+      <Poster
+        src={el.poster}
+        type={typesOfPosters[type]}
+        key={ind}
+        keyNumber={ind}
+      />
     </SwiperSlide>
   ));
 
@@ -81,7 +69,7 @@ function Row({ type, rowArray, rowTitle }) {
     <>
       <div className="row" style={styles}>
         <div className="row-title" style={RowTitleStyles}>
-          <h3>{rowTitle}</h3>
+          <h3>{name}</h3>
         </div>
         <Swiper
           ref={ref}

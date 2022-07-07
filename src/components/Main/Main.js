@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { FaPlay } from "react-icons/fa";
 
 import Details from "../Details/Details";
+import Row from "../Row/Row";
 import "./styles/styles.css";
 
 // there are two diff styles on this page
@@ -10,7 +11,6 @@ import "./styles/styles.css";
 // second when we scroll down and get normal shows
 
 function Main({ data }) {
-  console.log(data);
   const [highlight, setHighlight] = useState("highlight");
   // since the styles depend if whether we are at the top or not
   // ive put them in a state instead
@@ -39,28 +39,39 @@ function Main({ data }) {
             width="700px"
             fontSize={"2vw"}
             original={true}
-            name="Super Saiyan"
-            description={
-              "A story about a fight that never occured. But nerds made it happen anyway!"
-            }
-            categories={["Action", "Anime", "Super Powers"]}
+            name={data?.highlight?.item?.name}
+            description={data?.highlight?.item?.description}
+            categories={data?.highlight?.item?.genres}
           />
         </div>
       </div>
-      <div className={`trailer trailer-${highlight}`}>
-        <div className={`trailer-details trailer-details-${highlight}`}>
-          {/* {data} */}
 
+      <div className={`trailer trailer-${highlight}`}>
+        <div
+          className="wall"
+          style={{
+            backgroundImage: `radial-gradient(circle, rgba(0,0,0,0) 0%, 
+            rgba(20,20,20,0.2) 25%,
+            rgba(20,20,20,0.3) 35%,
+            rgba(20,20,20,0.4) 45%,
+            rgba(20,20,20,0.5) 55%,
+            rgba(20,20,20,0.6) 65%,
+            rgba(20,20,20,0.7) 75%,
+            rgba(20,20,20,0.8) 80%,
+            rgba(20,20,20,0.9) 85%,
+            rgba(20,20,20,  1) 95%),
+            url(${data?.highlight?.item?.wall}`,
+          }}
+        ></div>
+        <div className={`trailer-details trailer-details-${highlight}`}>
           <Details
             textAlign="left"
             width="500px"
             fontSize={"2vw"}
             original={true}
-            name="Super Saiyan"
-            description={
-              "A story about a fight that never occured. But nerds made it happen anyway!"
-            }
-            categories={["Action", "Anime", "Super Powers"]}
+            name={data?.highlight?.item?.name}
+            description={data?.highlight?.item?.description}
+            categories={data?.highlight?.item?.genres}
           />
           <button className="trailer-button">
             <span>
@@ -71,7 +82,14 @@ function Main({ data }) {
           <button className="trailer-button">More Info</button>
         </div>
       </div>
-      <div className={`rows rows-${highlight}`} id="rows"></div>
+
+      <div className={`rows rows-${highlight}`} id="rows">
+        {data?.rowMatrix?.map((el, ind) => {
+          return (
+            <Row name={el.name} type="normal" rowArray={el.row} key={ind} />
+          );
+        })}
+      </div>
     </div>
   );
 }

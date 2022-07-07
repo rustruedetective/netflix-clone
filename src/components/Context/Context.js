@@ -1,13 +1,13 @@
 import React, { createContext, useState } from "react";
 
 import {
-  homeData,
-  newData,
-  filmData,
-  tvData,
-  surpriseData,
-  searchData,
-  categoryData,
+  home,
+  new_and_popular,
+  film,
+  tv,
+  surprise,
+  search,
+  category,
 } from "./Helpers/reducerHelpers";
 
 const context = createContext([]);
@@ -16,31 +16,31 @@ function Context({ children }) {
   const [data, setData] = useState({});
   const setHandler = async (page) => {
     if (page === "/home") {
-      const result = await homeData();
+      const result = await home();
       setData(result);
     }
     if (page === "/new") {
-      const result = await newData();
+      const result = await new_and_popular();
       setData(result);
     }
     if (page === "/film") {
-      const result = await filmData();
+      const result = await film();
       setData(result);
     }
     if (page === "/tv") {
-      const result = await tvData();
+      const result = await tv();
       setData(result);
     }
     if (page === "/surprise") {
-      const result = await surpriseData();
+      const result = await surprise();
       setData(result);
     }
     if (page === "/search") {
-      const result = await searchData();
+      const result = await search();
       setData(result);
     }
     if (page === "/category") {
-      const result = await categoryData();
+      const result = await category();
       setData(result);
     }
     return {};

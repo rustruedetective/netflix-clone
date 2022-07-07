@@ -129,11 +129,7 @@ const request = {
           return data;
         },
         random: async (genres) => {
-          let data = await requestRandom(
-            urls.urls.discover.genre.tv,
-            "",
-            genres
-          );
+          let data = await requestRandom(urls.discover.genre.tv, "", genres);
           data = await processItems(data);
           return data;
         },

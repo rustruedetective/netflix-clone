@@ -1,7 +1,18 @@
 import React from "react";
 
-function Poster({ name, src, type, keyNumber }) {
-  if (type.name === "normal") return <img src={src} style={{ ...type }} />;
+import missing from "./resources/missing.png";
+
+function Poster({ src, type, keyNumber }) {
+  if (type.name === "normal")
+    return (
+      <img
+        src={src}
+        style={{ ...type }}
+        onError={(e) => {
+          e.target.src = missing;
+        }}
+      />
+    );
 
   if (type.name === "numbered") {
     const widthImg = `${Number(type.width.split("px")[0]) / 2}px`;
