@@ -2,15 +2,16 @@ import React from "react";
 
 import missing from "./resources/missing.png";
 
-function Poster({ src, type, keyNumber }) {
+function Poster({ type, data, select, keyNumber }) {
   if (type.name === "normal")
     return (
       <img
-        src={src}
+        src={data.poster}
         style={{ ...type }}
         onError={(e) => {
           e.target.src = missing;
         }}
+        onClick={(_) => select(data)}
       />
     );
 
@@ -52,7 +53,7 @@ function Poster({ src, type, keyNumber }) {
           </h1>
         </div>
         <img
-          src={src}
+          src={data.poster}
           style={{
             width: widthImg,
             height: type.height,
@@ -63,11 +64,13 @@ function Poster({ src, type, keyNumber }) {
     );
   }
 
-  if (type.name === "trailer") return <img src={src} style={{ ...type }} />;
+  if (type.name === "trailer")
+    return <img src={data.poster} style={{ ...type }} />;
 
-  if (type.name === "search") return <img src={src} style={{ ...type }} />;
+  if (type.name === "search")
+    return <img src={data.poster} style={{ ...type }} />;
 
-  return <img src={src} style={{ ...type }} />;
+  return <img src={data.poster} style={{ ...type }} />;
 }
 
 export default Poster;

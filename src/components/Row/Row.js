@@ -35,13 +35,14 @@ const typesOfPosters = {
   },
 };
 
-function Row({ name, type, rowArray }) {
+function Row({ name, type, rowArray, select }) {
   const [slidesPerView, setSlidesPerView] = useState(0);
   const row = rowArray.map((el, ind) => (
     <SwiperSlide key={ind}>
       <Poster
-        src={el.poster}
         type={typesOfPosters[type]}
+        data={el}
+        select={select}
         key={ind}
         keyNumber={ind}
       />

@@ -1,6 +1,8 @@
 Libs Used:-
 Swipper js's react components
-Rebass
+react-icons
+youtube-api-search
+react-youtube
 
 1. Styles
 a. all styles stored in src/styles in js objects

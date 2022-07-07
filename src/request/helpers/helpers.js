@@ -44,6 +44,7 @@ const processItems = async (data) => {
   try {
     data = data.results;
     data = data.map((el) => {
+      console.log(el)
       return {
         name: el.original_title || el.original_name,
         description: el.overview ? trimString(el.overview) : "",

@@ -12,23 +12,34 @@ import "./styles/styles.css";
 
 function Main({ data }) {
   const [highlight, setHighlight] = useState("highlight");
+  const [selected, setSelected] = useState(data?.highlight?.item);
   // since the styles depend if whether we are at the top or not
   // ive put them in a state instead
 
+  const scrollHandler = (e) => {
+    // This getElementById is still working, because this event is fired
+    // when the component has already loaded, so we do dont get null error
+    const el = document.getElementById("rows");
+
+    if (e.deltaY >= 100) setHighlight("normal");
+    else if (e.deltaY <= -100 && el.scrollTop === 0) {
+      // set highlight item when we scroll to top
+      setSelected(data?.highlight?.item);
+      setHighlight("highlight");
+    }
+  };
+  const selectHandler = (data) => {
+    console.log(data);
+    setSelected(data);
+    setHighlight("normal");
+  };
+
   useEffect(() => {
-    const scrollHandler = (e) => {
-      // This getElementById is still working, because this event is fired
-      // when the component has already loaded, so we do dont get null error
-      const el = document.getElementById("rows");
-
-      if (e.deltaY >= 100) setHighlight("normal");
-      else if (e.deltaY <= -100 && el.scrollTop === 0)
-        setHighlight("highlight");
-    };
-
+    // set highlight item on page load
+    setSelected(data?.highlight?.item);
     window.addEventListener("mousewheel", scrollHandler);
     return () => window.removeEventListener("mousewheel", scrollHandler);
-  }, []);
+  }, [data]);
 
   return (
     <div className="highlightpage">
@@ -39,9 +50,9 @@ function Main({ data }) {
             width="700px"
             fontSize={"2vw"}
             original={true}
-            name={data?.highlight?.item?.name}
-            description={data?.highlight?.item?.description}
-            categories={data?.highlight?.item?.genres}
+            name={selected?.name}
+            description={selected?.description}
+            categories={selected?.genres}
           />
         </div>
       </div>
@@ -60,7 +71,7 @@ function Main({ data }) {
             rgba(20,20,20,0.8) 80%,
             rgba(20,20,20,0.9) 85%,
             rgba(20,20,20,  1) 95%),
-            url(${data?.highlight?.item?.wall}`,
+            url(${selected?.wall}`,
           }}
         ></div>
         <div className={`trailer-details trailer-details-${highlight}`}>
@@ -69,9 +80,9 @@ function Main({ data }) {
             width="500px"
             fontSize={"2vw"}
             original={true}
-            name={data?.highlight?.item?.name}
-            description={data?.highlight?.item?.description}
-            categories={data?.highlight?.item?.genres}
+            name={selected?.name}
+            description={selected?.description}
+            categories={selected?.genres}
           />
           <button className="trailer-button">
             <span>
@@ -86,7 +97,13 @@ function Main({ data }) {
       <div className={`rows rows-${highlight}`} id="rows">
         {data?.rowMatrix?.map((el, ind) => {
           return (
-            <Row name={el.name} type="normal" rowArray={el.row} key={ind} />
+            <Row
+              name={el.name}
+              type="normal"
+              rowArray={el.row}
+              key={ind}
+              select={selectHandler}
+            />
           );
         })}
       </div>
