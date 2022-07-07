@@ -21,8 +21,17 @@
     position: absolute;
     height: 8vw;
     width: 100%;
-
-    background-color: black;
+    display: flex;
+}
+.colorBlack-a {
+    height: 100%;
+    width: 50%;
+    background: black;
+}
+.colorBlack-b {
+    height: 100%;
+    width: 50%;
+    background: black;
 }
 
 .surprise-trailer {
