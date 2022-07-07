@@ -59,7 +59,7 @@ function Main({ data }) {
 
       <div className={`trailer trailer-${highlight}`}>
         <Trailer wall={selected?.wall} />
-        <div className={`trailer-details trailer-details-${highlight}`}>
+        <div className={`main-trailer-details main-trailer-details-${highlight}`}>
           <Details
             textAlign="left"
             width="500px"

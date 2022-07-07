@@ -66,7 +66,7 @@ function SurpriseMe({ data }) {
                 </Link>
               </div>
             </div>
-            <div className="trailer-details" ref={ref}>
+            <div className="surprise-trailer-details" ref={ref}>
               <Details
                 textAlign="left"
                 width="40vw"

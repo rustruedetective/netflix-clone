@@ -64,7 +64,7 @@
     height: var(--normal-trailer-height);
     width: var(--normal-trailer-width);
 }
-.trailer-details {
+.main-trailer-details {
     position: absolute;
     left: 8vw;
     bottom: 8vw;
@@ -73,10 +73,10 @@
 
     z-index: 2;
 }
-.trailer-details-highlight {
+.main-trailer-details-highlight {
     opacity: 1;
 }
-.trailer-details-normal {
+.main-trailer-details-normal {
     opacity: 0;
 }
 
