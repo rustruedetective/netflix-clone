@@ -1,27 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Category from "./Category";
 import Details from "../Details/Details";
 
 import "./styles/styles.css";
 
-function Categories({ data, categories }) {
-  console.log(data);
-  categories = [
-    { name: "Action", active: false },
-    { name: "Horror", active: false },
-    { name: "Crime", active: true },
-    { name: "Anime", active: false },
-  ];
+function Categories({ data }) {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    setActive(0);
+  }, [data]);
 
   return (
     <div className="poster-slideshow">
       <div className="dark-clouds"></div>
       <div className="categories">
         <h4 className="heading">Your Top Categories</h4>
-        {categories.map((el, ind) => (
-          <Category name={el.name} active={el.active} key={ind} />
-        ))}
+        {data?.genres?.map((el, ind) => {
+          if (active === ind)
+            return <Category name={el.name} active={true} key={ind} />;
+          else return <Category name={el.name} active={false} key={ind} />;
+        })}
       </div>
       <div className="category-details">
         <Details

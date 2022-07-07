@@ -1,4 +1,4 @@
-import { combinedGenresById } from "../data/preloaded";
+import { genreCombindedById } from "../data/preloaded";
 
 const IMG_URL = process.env.REACT_APP_IMG_URL;
 
@@ -67,7 +67,7 @@ const trimString = (str) => {
   return str;
 };
 const processGenreNamesById = (arr) => {
-  return arr.map((el) => combinedGenresById[el]);
+  return arr.map((el) => genreCombindedById[el]);
 };
 
 const processGenres = async (data) => {

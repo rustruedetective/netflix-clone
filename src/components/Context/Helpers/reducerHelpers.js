@@ -4,6 +4,7 @@ import {
   genreMoviesById,
   genreTVByName,
   genreTVById,
+  genreCombindedByName,
 } from "../../../request/data/preloaded";
 // under construction
 // import {
@@ -11,7 +12,7 @@ import {
 //   becauseYouWatchedTV,
 // } from "../data/preloaded";
 
-import { randomNumber, shuffle } from "./randomizer";
+import { randomNumber, shuffle, getMultipleRandom } from "./randomizer";
 
 const home = async (_) => {
   // under construction
@@ -93,7 +94,7 @@ const home = async (_) => {
     //   data.rowMatrix = shuffle(data.rowMatrix);
     // }
   } catch (Error) {
-    console.log("Data Error", Error);
+    console.log("Context Helper Error", Error);
   }
 
   return data;
@@ -118,7 +119,29 @@ const tv = async (_) => {
 };
 
 const category = async (_) => {
-  const data = { rowMatrix: [] };
+  const data = { genres: [] };
+  const maxGenres = 6;
+  const genresNames = getMultipleRandom(
+    Object.keys(genreCombindedByName),
+    maxGenres
+  );
+
+  const moviesReq = async (genre) =>
+    await request.discover.genre.movies.random(genreMoviesByName[genre]);
+  const tvReq = async (genre) =>
+    await request.discover.genre.tv.random(genreTVByName[genre]);
+
+  try {
+    for (let i = 0; i < maxGenres; i++) {
+      const row =
+        i < maxGenres / 2
+          ? await moviesReq(genreCombindedByName[genresNames[i]])
+          : await tvReq(genreCombindedByName[genresNames[i]]);
+      data.genres.push({ name: genresNames[i], row: row });
+    }
+  } catch (Error) {
+    console.log("Context Helper Error", Error);
+  }
 
   return data;
 };
@@ -143,9 +166,14 @@ const surprise = async (_) => {
       { request: request.tv.popular.top },
     ],
   };
+
   const randomReq = rowReq.requests[randomNumber(rowReq.requests.length)];
   data.name = rowReq.name;
-  data.row = await randomReq.request();
+  try {
+    data.row = await randomReq.request();
+  } catch (Error) {
+    console.log("Context Helper Error", Error);
+  }
   return data;
 };
 

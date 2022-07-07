@@ -86,7 +86,7 @@ const genreTVById = {
   10768: "War & Politics",
 };
 
-const combinedGenresById = {
+const genreCombindedById = {
   12: "Adventure",
   14: "Fantasy",
   27: "Horror",
@@ -116,10 +116,41 @@ const combinedGenresById = {
   10768: "War & Politics",
 };
 
+const genreCombindedByName = {
+  Adventure: 12,
+  Fantasy: 14,
+  Horror: 27,
+  Action: 28,
+  History: 36,
+  Thriller: 53,
+  "Science Fiction": 878,
+  Music: 10402,
+  Romance: 10749,
+  War: 10752,
+  "TV Movie": 10770,
+  Animation: 16,
+  Drama: 18,
+  Comedy: 35,
+  Western: 37,
+  Crime: 80,
+  Documentary: 99,
+  Mystery: 9648,
+  Family: 10751,
+  "Action & Adventure": 10759,
+  Kids: 10762,
+  News: 10763,
+  Reality: 10764,
+  "Sci-Fi & Fantasy": 10765,
+  Soap: 10766,
+  Talk: 10767,
+  "War & Politics": 10768,
+};
+
 export {
   genreMoviesByName,
   genreMoviesById,
   genreTVByName,
   genreTVById,
-  combinedGenresById,
+  genreCombindedById,
+  genreCombindedByName,
 };
