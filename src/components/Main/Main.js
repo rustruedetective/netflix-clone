@@ -29,7 +29,6 @@ function Main({ data }) {
     }
   };
   const selectHandler = (data) => {
-    console.log(data);
     setSelected(data);
     setHighlight("normal");
   };

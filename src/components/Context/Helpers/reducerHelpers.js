@@ -81,20 +81,20 @@ const home = async (_) => {
     // },
   ];
 
-  try {
-    data.highlight.name = highlightReq.name;
-    data.highlight.item = await highlightReq.request();
-    data.highlight.item =
-      data.highlight.item[randomNumber(data.highlight.item.length)];
+  // try {
+  //   data.highlight.name = highlightReq.name;
+  //   data.highlight.item = await highlightReq.request();
+  //   data.highlight.item =
+  //     data.highlight.item[randomNumber(data.highlight.item.length)];
 
-    for (let el of rowMatrixReq) {
-      const row = await el.request();
-      data.rowMatrix.push({ name: el.name, row: row });
-      data.rowMatrix = shuffle(data.rowMatrix);
-    }
-  } catch (Error) {
-    console.log("Data Error", Error);
-  }
+  //   for (let el of rowMatrixReq) {
+  //     const row = await el.request();
+  //     data.rowMatrix.push({ name: el.name, row: row });
+  //     data.rowMatrix = shuffle(data.rowMatrix);
+  //   }
+  // } catch (Error) {
+  //   console.log("Data Error", Error);
+  // }
 
   return data;
 };
@@ -106,33 +106,47 @@ const new_and_popular = async (_) => {
 };
 
 const film = async (_) => {
-  const filmData = { highlight: {}, rowMatrix: [] };
+  const data = { highlight: {}, rowMatrix: [] };
 
-  return filmData;
+  return data;
 };
 
 const tv = async (_) => {
-  const tvData = { highlight: {}, rowMatrix: [] };
+  const data = { highlight: {}, rowMatrix: [] };
 
-  return tvData;
+  return data;
 };
 
 const category = async (_) => {
-  const categoryData = { rowMatrix: [] };
+  const data = { rowMatrix: [] };
 
-  return categoryData;
+  return data;
 };
 
 const search = async (_) => {
-  const searchData = { rows: [], searchFunction: null };
+  const data = { rows: [], searchFunction: null };
 
-  return searchData;
+  return data;
 };
 
 const surprise = async (_) => {
-  const surpriseData = { rows: [] };
-
-  return surpriseData;
+  const data = { name: "", row: [] };
+  const rowReq = {
+    name: "Surprise",
+    requests: [
+      { request: request.trending.all },
+      { request: request.trending.movies },
+      { request: request.trending.tv },
+      { request: request.discover.movies.top },
+      { request: request.discover.tv.top },
+      { request: request.movies.popular.top },
+      { request: request.tv.popular.top },
+    ],
+  };
+  const randomReq = rowReq.requests[randomNumber(rowReq.requests.length)];
+  data.name = rowReq.name;
+  data.row = await randomReq.request();
+  return data;
 };
 
 export { home, new_and_popular, film, tv, surprise, search, category };
