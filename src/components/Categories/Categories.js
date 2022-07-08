@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Category from "./Category";
 import Details from "../Details/Details";
+import SlideShow from "../SlideShow/SlideShow";
 
 import "./styles/styles.css";
 
 function Categories({ data }) {
-  const [genre, setGenre] = useState(0);
-  const [item, setItem] = useState(0);
-  let interval = null;
+  const [genre, setGenre] = useState(null);
+  const [item, setItem] = useState({ index: 0 });
+  const slideshowRef = useRef(null);
 
-  // two helper functions to navigate the complex 2d array kind of data structure shit
-  const getGenre = () => data?.genres?.[genre];
-  const getItem = () => data?.genres?.[genre]?.row?.[item];
-
-  const handleItem = (_) => {
-    console.log(genre);
+  const handleItemTransitions = (_) => {
+    setItem(item === data?.genres?.[genre]?.row?.length - 1 ? 0 : item + 1);
   };
 
   useEffect(() => {
@@ -23,13 +20,23 @@ function Categories({ data }) {
   }, [data]);
 
   useEffect(() => {
-    interval = setInterval(handleItem, 2000);
-    return () => clearInterval(interval); //note that the previous interval will clear before new is set
+    setItem(0);
   }, [genre]);
 
+  useEffect(() => {
+    const timer = setTimeout(handleItemTransitions, 5000);
+    slideshowRef.current.className = `category-slideshow category-slideshow-move-${
+      item % 2 === 0 ? "left" : "right"
+    }`;
+
+    return () => clearTimeout(timer); //note that the previous interval will clear before new is set
+  }, [item]);
+
   return (
-    <div className="poster-slideshow">
-      <div className="dark-clouds"></div>
+    <div className="category-poster">
+      <div ref={slideshowRef}>
+        <SlideShow wall={data?.genres?.[genre]?.row?.[item]?.wall} />
+      </div>
       <div className="categories">
         <h4 className="heading">Your Top Categories</h4>
         {data?.genres?.map((el, ind) => {
@@ -59,9 +66,9 @@ function Categories({ data }) {
           textAlign="right"
           width="500px"
           fontSize={"2vw"}
-          original={true}
-          name="Super Saiyan"
-          categories={["Action", "Anime", "Super Powers"]}
+          original={false}
+          name={data?.genres?.[genre]?.row?.[item]?.name}
+          categories={data?.genres?.[genre]?.row?.[item]?.genres}
         />
       </div>
     </div>

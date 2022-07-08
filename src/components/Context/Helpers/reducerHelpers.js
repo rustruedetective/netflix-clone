@@ -1,10 +1,7 @@
 import request from "../../../request/request";
 import {
   genreMoviesByName,
-  genreMoviesById,
   genreTVByName,
-  genreTVById,
-  genreCombindedByName,
 } from "../../../request/data/preloaded";
 // under construction
 // import {
@@ -26,8 +23,6 @@ const home = async (_) => {
     request: request.trending.all,
   };
   const rowMatrixReq = [
-    // to search
-
     {
       name: "TV Now Playing",
       request: request.tv.nowPlaying.random,
@@ -38,7 +33,6 @@ const home = async (_) => {
         await request.discover.genre.tv.random(
           genreTVByName["Sci-Fi & Fantasy"]
         ),
-      // request("random", urls.discover.genre.tv, genreTVByName["Sci-Fi & Fantasy"]);
     },
     {
       name: "Action & Adventure Programmes",
@@ -52,8 +46,6 @@ const home = async (_) => {
       name: "Every-winning TV Programmes",
       request: request.tv.top.top,
     },
-
-    // easy requests
     { name: "Trending Now", row: [], request: request.trending.all },
     {
       name: "Children & Family TV",
@@ -120,24 +112,28 @@ const tv = async (_) => {
 
 const category = async (_) => {
   const data = { genres: [] };
-  const maxGenres = 6;
-  const genresNames = getMultipleRandom(
-    Object.keys(genreCombindedByName),
-    maxGenres
+  const noOfGenres = 3;
+  const randomMovieGenres = getMultipleRandom(
+    Object.keys(genreMoviesByName),
+    noOfGenres
+  );
+  const randomTVGenres = getMultipleRandom(
+    Object.keys(genreTVByName),
+    noOfGenres
   );
 
-  const moviesReq = async (genre) =>
-    await request.discover.genre.movies.random(genreMoviesByName[genre]);
-  const tvReq = async (genre) =>
-    await request.discover.genre.tv.random(genreTVByName[genre]);
+  const moviesReq = async (genre_name) =>
+    await request.discover.genre.movies.top(genreMoviesByName[genre_name]);
+  const tvReq = async (genre_name) =>
+    await request.discover.genre.tv.top(genreTVByName[genre_name]);
 
   try {
-    for (let i = 0; i < maxGenres; i++) {
-      const row =
-        i < maxGenres / 2
-          ? await moviesReq(genreCombindedByName[genresNames[i]])
-          : await tvReq(genreCombindedByName[genresNames[i]]);
-      data.genres.push({ name: genresNames[i], row: row });
+    for (let i = 0; i < noOfGenres; i++) {
+      const rowMovie = await moviesReq(randomMovieGenres[i]);
+      const rowTV = await tvReq(randomTVGenres[i]);
+
+      data.genres.push({ name: randomMovieGenres[i], row: rowMovie });
+      data.genres.push({ name: randomTVGenres[i], row: rowTV });
     }
   } catch (Error) {
     console.log("Context Helper Error", Error);
@@ -147,7 +143,14 @@ const category = async (_) => {
 };
 
 const search = async (_) => {
-  const data = { rows: [], searchFunction: null };
+  const data = { searchFunction: null };
+
+  data.searchFunction = async (query) => {
+    const moviesResult = await request.search.movies.top(query);
+    const tvResult = await request.search.tv.top(query);
+
+    return [...moviesResult, ...tvResult];
+  };
 
   return data;
 };
@@ -169,6 +172,7 @@ const surprise = async (_) => {
 
   const randomReq = rowReq.requests[randomNumber(rowReq.requests.length)];
   data.name = rowReq.name;
+
   try {
     data.row = await randomReq.request();
   } catch (Error) {

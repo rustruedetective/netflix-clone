@@ -42,6 +42,10 @@
     padding-top: 1vh;
 }
 
+.poster-wrapper {
+    margin-right: 10px;
+}
+
 .top-searched {
     height: 5vh;
     margin-bottom: 5vh;
@@ -50,8 +54,7 @@
 
 .posters-area {
     height: 80vh;
-    width: 90%;
-    background-color: yellow;
+    width: 95%;
     display: flex;
     flex-wrap: wrap;
 

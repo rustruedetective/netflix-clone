@@ -21,18 +21,6 @@ const typesOfPosters = {
     height: "231.48px",
     aspectRatio: "auto 416 / 625",
   },
-  trailer: {
-    name: "trailer",
-    width: "154.07px",
-    height: "231.48px",
-    aspectRatio: "auto 416 / 625",
-  },
-  search: {
-    name: "search",
-    width: "154.07px",
-    height: "231.48px",
-    aspectRatio: "auto 416 / 625",
-  },
 };
 
 function Row({ name, type, rowArray, select }) {
@@ -40,11 +28,14 @@ function Row({ name, type, rowArray, select }) {
   const row = rowArray.map((el, ind) => (
     <SwiperSlide key={ind}>
       <Poster
-        type={typesOfPosters[type]}
         data={el}
         select={select}
         key={ind}
         keyNumber={ind}
+        name={typesOfPosters[type].name}
+        width={typesOfPosters[type].width}
+        height={typesOfPosters[type].height}
+        aspectRatio={typesOfPosters[type].aspectRatio}
       />
     </SwiperSlide>
   ));
