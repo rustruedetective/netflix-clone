@@ -1,10 +1,11 @@
+@import "../../../globalStyles/stylesConstants.css";
+
 :root {
     --menu-icon-width: 1.5rem;
-    --white-color: #fffff0;
 }
 
 .category {
-    color: var(--white-color);
+    color: var(--main-white);
     font-weight: lighter;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -14,7 +15,7 @@
 }
 
 .selected-category {
-    color: red;
+    color: var(--main-red);
     margin-left: 0.6rem;
     display: inline-block;
 }
@@ -23,7 +24,7 @@
     height: 1.5rem;
     width: 0.3rem;
     display: inline-block;
-    background-color: red;
+    background-color: var(--main-red);
     position: relative;
     top: 0.3rem;
 }

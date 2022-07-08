@@ -1,11 +1,11 @@
+@import "../../../globalStyles/stylesConstants.css";
+
 :root {
     /* aspect ratio is 16:9 (720p) */
     --normal-trailer-height: 52vh;
     --normal-trailer-width: 116.48vh;
 
     --highlight-rows-height: 28vh;
-
-    --main-background-color: #141414;
 
     --menu-icon-width: 1.5rem;
 }
@@ -14,7 +14,7 @@
 .highlightpage {
     height: 100%;
     width: 100%;
-    background-color: var(--main-background-color);
+    background-color: var(--main-black);
 }
 
 
@@ -23,7 +23,7 @@
     top: 0;
     left: 0;
     height: var(--normal-trailer-height);
-    background: var(--main-background-color);
+    background: var(--main-black);
     transition: cubic-bezier(.08,1.05,.92,.95) 1s;
 
     z-index: 2;
@@ -54,7 +54,7 @@
     top: 0;
     right: 0;
     transition: cubic-bezier(.08,1.05,.92,.95) 1s;
-    background-color: var(--main-background-color);
+    background-color: var(--main-black);
 }
 .trailer-highlight {
     height: 80%;
@@ -87,8 +87,8 @@
     padding-left: 1vw;
     padding-right: 1vw;
 
-    background-color: grey;
-    color: white;
+    background-color: var(--row-grey);
+    color: var(--main-white);
     font-weight: bold;
     font-size: 1.05rem;
     border: none;
@@ -100,8 +100,8 @@
     margin-right: 0.5vw;
 }
 .trailer-button:hover {
-    background-color: white;
-    color: black;
+    background-color: var(--main-white);
+    color: var(--main-black);
 }
 
 .rows {
@@ -113,7 +113,7 @@
     transition: cubic-bezier(.08,1.05,.92,.95) 1s;
 
     overflow-y: scroll;
-    color: white;
+    color: var(--main-white);
 
     z-index: 2;
 }

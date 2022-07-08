@@ -10,8 +10,6 @@ import Main from "./components/Main/Main";
 import SurpriseMe from "./components/SurpriseMe/SurpriseMe";
 import Categories from "./components/Categories/Categories";
 import Source from "./components/Source/Source";
-import Row from "./components/Row/Row";
-import Details from "./components/Details/Details";
 
 import "./App.css";
 

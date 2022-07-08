@@ -1,9 +1,10 @@
 :root {
-    --main-background-color: #141414;
-    --row-headings: #e5e5e5;
-
-    --red-color: #e50914;
-    --white-in-red-color: #fffff0;
+    --main-black: #141414;
+    --main-black-rgba: 20, 20, 20;
+    --main-red: #e50914;
+    --main-white: #fffff0;
+    
+    --row-grey: #e5e5e5;
 
     --sign-page-heading: #ffffff;
     --sign-page-inputs: #333333;

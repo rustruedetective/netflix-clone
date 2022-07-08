@@ -3,6 +3,7 @@ Swipper js's react components
 react-icons
 youtube-api-search
 react-youtube
+webfontloader
 
 1. Styles
 a. all styles stored in src/styles in js objects

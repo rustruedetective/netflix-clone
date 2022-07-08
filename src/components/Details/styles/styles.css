@@ -1,5 +1,7 @@
+@import "../../../globalStyles/stylesConstants.css";
+
 .details {
-    color: white;
+    color: var(--main-white);
 }
 .details div {
     /* If no content is provided, this will still show up */
@@ -10,7 +12,7 @@
     letter-spacing: 3px;
 }
 .netflix-icon {
-    color: red;
+    color: var(--main-red);
     vertical-align: bottom;
 }
 .details-categories {

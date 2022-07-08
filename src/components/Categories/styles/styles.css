@@ -1,14 +1,14 @@
+@import "../../../globalStyles/stylesConstants.css";
+
 :root {
     --menu-icon-width: 1.5rem;
-    --white-color: #fffff0;
-    --main-background-color: #141414;
 }
 
 .category-poster {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    background-color: var(--main-background-color);
+    background-color: var(--main-black);
 }
 
 .category-slideshow {
@@ -32,7 +32,7 @@
 
 .heading {
     margin-left: 0.9rem;
-    color: var(--white-color);
+    color: var(--main-white);
 }
 
 .categories {

@@ -1,8 +1,11 @@
+@import "../../../globalStyles/stylesConstants.css";
+
 :root {
     --menu-icon-height: 1.5rem;
-    --menu-icon-width: 1.5rem;
+    --menu-icon-width: 1.5rem;  
 
-    --white-color: #fffff0;
+    --normal-gradient: linear-gradient(90deg, rgba(var(--main-black-rgba),1) 0%, rgba(var(--main-black-rgba),0.5) 50%,rgba(var(--main-black-rgba),0.2) 75%,rgba(var(--main-black-rgba),0.1) 90%,rgba(var(--main-black-rgba),0.01)  100%);
+    --active-gradient: linear-gradient(90deg, rgba(var(--main-black-rgba),1) 0%, rgba(var(--main-black-rgba),0.8) 50%,rgba(var(--main-black-rgba),0.5) 75%,rgba(var(--main-black-rgba),0.3) 90%,rgba(var(--main-black-rgba),0.1)  100%);
 }
 
 .menu {
@@ -16,14 +19,14 @@
 
     transition: width 0.5s ease-out;
 
-    background: linear-gradient(90deg, rgba(20,20,20,1) 0%, rgba(20,20,20,0.5) 50%,rgba(20,20,20,0.2) 75%,rgba(20,20,20,0.1) 90%,rgba(20,20,20,0.01)  100%);
+    background: var(--black-linear-gradient);
 
     z-index: 10;
 }
 
 .menu-active {
     width: calc(var(--menu-icon-width)*7);
-    background: linear-gradient(90deg, rgba(20,20,20,1) 0%, rgba(20,20,20,0.8) 50%,rgba(20,20,20,0.5) 75%,rgba(20,20,20,0.3) 90%,rgba(20,20,20,0.1)  100%);
+    background: var(--active-gradient);
 }
 
 .active-profile {
