@@ -66,6 +66,19 @@
     height: 89vh;
 }
 
+.suggested {
+    cursor: pointer;
+
+    transition: color 0.3s ease-out;
+}
+.suggested:hover {
+    color: red
+}
+
+input:focus{
+    outline: none;
+}
+
 /* for hiding scroll */
 .posters-area::-webkit-scrollbar {
     display: none;

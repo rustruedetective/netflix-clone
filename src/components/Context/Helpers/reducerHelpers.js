@@ -80,11 +80,11 @@ const home = async (_) => {
     data.highlight.item =
       data.highlight.item[randomNumber(data.highlight.item.length)];
 
-    // for (let el of rowMatrixReq) {
-    //   const row = await el.request();
-    //   data.rowMatrix.push({ name: el.name, row: row });
-    //   data.rowMatrix = shuffle(data.rowMatrix);
-    // }
+    for (let el of rowMatrixReq) {
+      const row = await el.request();
+      data.rowMatrix.push({ name: el.name, row: row });
+      data.rowMatrix = shuffle(data.rowMatrix);
+    }
   } catch (Error) {
     console.log("Context Helper Error", Error);
   }
@@ -143,7 +143,8 @@ const category = async (_) => {
 };
 
 const search = async (_) => {
-  const data = { searchFunction: null };
+  const data = { row: [], searchFunction: null };
+  data.row = await request.trending.all();
 
   data.searchFunction = async (query) => {
     const moviesResult = await request.search.movies.top(query);

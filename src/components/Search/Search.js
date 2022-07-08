@@ -3,12 +3,21 @@ import React, { useState, useRef, useEffect } from "react";
 import Poster from "../Poster/Poster";
 import "./styles/styles.css";
 
-function SearchPage({ data, categories }) {
+function SearchPage({ data, suggested }) {
   const [scrolling, setScrolling] = useState(false);
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const ref = useRef(null);
-  categories = ["horror", "action"];
+  suggested = [
+    "spiderman",
+    "the witcher",
+    "friends",
+    "doctor strange",
+    "the godfather",
+    "star wars",
+    "rick and morty",
+    "top gun",
+  ];
 
   const handleSearch = async (query) => {
     const results = await data?.searchFunction?.(query);
@@ -37,6 +46,10 @@ function SearchPage({ data, categories }) {
     return (_) => postersArea.removeEventListener("mousewheel", scrollHandler);
   }, []);
 
+  useEffect(() => {
+    setResults(data.row);
+  }, [data]);
+
   return (
     <div className="container">
       <div className="search-bar">
@@ -44,8 +57,16 @@ function SearchPage({ data, categories }) {
           <form onSubmit={handleSubmit}>
             <input type="text" name="query" onChange={handleChange}></input>
           </form>
-          {categories.map((el, ind) => {
-            return <p key={ind}>{el}</p>;
+          {suggested.map((el, ind) => {
+            return (
+              <p
+                className="suggested"
+                key={ind}
+                onClick={(e) => handleSearch(e.target.innerText)}
+              >
+                {el}
+              </p>
+            );
           })}
         </div>
       </div>
