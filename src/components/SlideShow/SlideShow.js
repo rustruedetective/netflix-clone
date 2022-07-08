@@ -17,7 +17,7 @@ function SlideShow({ wall }) {
             rgba(20,20,20,0.8) 65%,
             rgba(20,20,20,0.9) 70%,
             rgba(20,20,20,  1) 85%),
-            url(${wall}`,
+            url(${wall})`,
       }}
     ></div>
   );

@@ -4,7 +4,7 @@
     --wall-gradient: radial-gradient(circle, rgba(var(--main-black-rgba),0) 0%, rgba(var(--main-black-rgba),1) 85%);
 }
 
-.wall {
+.slideshow {
     height: 100%;
     width: 100%;
 

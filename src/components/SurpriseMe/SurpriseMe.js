@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import { MdKeyboardArrowUp } from "react-icons/md";
 
+import stylesConstants from "../../globalStyles/stylesConstants";
 import Trailer from "../Trailer/Trailer";
 import Details from "../Details/Details";
 import "./styles/styles.css";
@@ -41,13 +42,18 @@ function SurpriseMe({ data }) {
         <div className="colorBlack">
           <div
             className="colorBlack-a"
-            style={{ background: index === 0 ? "transparent" : "black" }}
+            style={{
+              background:
+                index === 0 ? "transparent" : stylesConstants.main_black,
+            }}
           ></div>
           <div
             className="colorBlack-b"
             style={{
               background:
-                index === data?.row?.length - 1 ? "transparent" : "black",
+                index === data?.row?.length - 1
+                  ? "transparent"
+                  : stylesConstants.main_black,
             }}
           ></div>
         </div>
