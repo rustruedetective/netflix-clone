@@ -1,4 +1,4 @@
-import { Autoplay } from "swiper";
+import stylesConstants from "../../../globalStyles/stylesConstants";
 
 const styles = {
   width: "calc(100vw - calc(1.5rem * 3))",

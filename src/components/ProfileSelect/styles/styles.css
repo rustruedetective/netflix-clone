@@ -1,7 +1,4 @@
-:root {
-    --main-background-color: #141414;
-    --grey: #8c8c75;
-}
+@import "../../../globalStyles/stylesConstants.css";
 
 .homepage {  display: grid;
     grid-template-columns: auto;
@@ -15,7 +12,7 @@
       "buttons";
     width: 100vw;
     height: 100vh;
-    background-color: var(--main-background-color);
+    background-color: var(--main-black);
 }
   
 .heading {
@@ -58,7 +55,7 @@
     border-radius: 0.3vw;
     outline: none;
     border: none;
-    background-color: var(--grey);
+    background-color: var(--row-grey);
 
     transition: all 0.3s ease-out;
 }
@@ -81,13 +78,13 @@
 }
 
 .buttons-area2 button:hover {
-    background-color: white;
+    background-color: var(--main-white);
 }
 .buttons-area2 button:hover .surprise-link span {
-    color: var(--main-background-color);
+    color: var(--main-black);
 }
 .surprise-link-icon {
-    color: white;
+    color: var(--main-white);
 }
 .buttons-area2 button:hover .surprise-link-icon {
     fill: url(#gradient);
@@ -97,16 +94,16 @@
     margin-top: 2vw;
 }
 .profile-icon-wrapper2 {
-    color:grey;
+    color: var(--row-grey);
 }
 .profile-icon {
-    border: 3px solid grey;
+    border: 3px solid var(--row-grey);
     border-radius: 50%;
     padding: 3px;
 }
 .profile-icon-wrapper2:hover {
-    color:white;
+    color: var(--main-white);
 }
 .profile-icon-wrapper2:hover .profile-icon {
-    border-color: white;
+    border-color: var(--main-white);
 }

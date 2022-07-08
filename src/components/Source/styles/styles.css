@@ -1,5 +1,7 @@
+@import "../../../globalStyles/stylesConstants.css";
+
 .main {
-    background-color: #141414;
+    background-color: var(--main-black);
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -20,7 +22,7 @@
 	top: 25%;
 	width: 70vh;
 	height: 70vh;
-	background: #e50914;
+	background: var(--main-red);
 	border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
 	will-change: border-radius, transform, opacity;
 	animation: sliderShape1 5s linear infinite;

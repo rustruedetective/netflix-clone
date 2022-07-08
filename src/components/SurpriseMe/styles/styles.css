@@ -1,7 +1,9 @@
+@import "../../../globalStyles/stylesConstants.css";
+
 .surprise {
     height: 100vh;
     width: 100vw;
-    background-color: black;
+    background-color: var(--main-black);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,7 +13,7 @@
     width: calc(90vw + 5px);
     height: calc(90vh + 5px);
     border-radius: 10px;
-    background-color: white;
+    background-color: var(--main-white);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,12 +28,12 @@
 .colorBlack-a {
     height: 100%;
     width: 50%;
-    background: black;
+    background: var(--main-black);
 }
 .colorBlack-b {
     height: 100%;
     width: 50%;
-    background: black;
+    background: var(--main-black);
 }
 
 .surprise-trailer {
@@ -39,7 +41,7 @@
     overflow: hidden;
     height: 90vh;
     width: 90vw;
-    background: black;
+    background: var(--main-black);
     border-radius: 10px;
 }
 
@@ -48,7 +50,7 @@
     top: 0;
     left: 0;
     height: 100%;
-    color: white;
+    color: var(--main-white);
     
 
     transition: all 0.4s ease-out;
@@ -72,7 +74,7 @@
     font-size: 20px;
 }
 .exit-icon {
-    border: 0px solid white;
+    border: 0px solid var(--main-white);
     vertical-align: sub;
     transition: all 0.4s ease-out;
 }
@@ -97,7 +99,7 @@
     display: flex;
     align-items: center;
     background: transparent;
-    color: white;
+    color: var(--main-white);
 
 }
 
@@ -108,7 +110,7 @@
     display: flex;
     align-items: center;
     background: transparent;
-    color: white;
+    color: var(--main-white);
 
 }
 

@@ -4,9 +4,6 @@ import { ReactComponent as Tmdb } from "./resources/tmdb.svg";
 
 import "./styles/styles.css";
 
-const mainBackgroundColor = "#141414";
-const redColor = "#e50914";
-
 function Source() {
   return (
     <div className="main">
